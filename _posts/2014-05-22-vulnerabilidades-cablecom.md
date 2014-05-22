@@ -9,21 +9,21 @@ date: 2014-05-22 05:40:00
 Advertencia
 ---
 <div style="color:red;font-weight:bold;">
-La siguiente invesitgación es únicamente de caracter educativo, No me hago responsable de ninguna actividad ilícita que pudieran realizar. La red usada es inventada para usarla como ejemplo. 
+La siguiente investigación es únicamente de caracter educativo, No me hago responsable de ninguna actividad ilícita que pudieran realizar. La red usada es inventada para usarla como ejemplo. 
 </div>
 <br>
 
 Introducción
 ---
 
-Crackear redes WEP, se volvio algo relativamente sencillo despues de que se descubrió una vulnerabilidad en el algoritmo de encriptación que hacía que hacía que se usara la misma clave para encripat después de cierto número de paquetes enviados. 
+Crackear redes WEP, se volvio algo relativamente sencillo despues de que se descubrió una vulnerabilidad en el algoritmo de encriptación que hacía que hacía que se usara la misma clave para encriptar después de cierto número de paquetes enviados. 
 [Como usar Aircrack](http://www.aircrack-ng.org/doku.php?id=es:aircrack-ng#aproximacion_general_para_crackear_claves_wep), [Como Crackear una clave WEP](http://www.aircrack-ng.org/doku.php?id=simple_wep_crack)
 <br />
 
 Algunos Routers domésticos de la marca Huawei cuentan con una aplicación interna llamada mac2wepkey, que fue deducida satisfactoriamente por medio de ingeniería en reversa por [Humberto Ochoa de Websec](http://www.websec.mx/blog/ver/mac2wepkey_huawei) (Pueden usar su script en [routerpwn.com](http://routerpwn.com/#huawei)), de manera similar TPlink contaba con un sistema para asignar claves WEP por default, método que también fue deducido por ingenieria en reversa del que pueden leer más [aqui](http://www.dragonjar.org/vulnerabilidad-en-routers-thomson-a-fondo.xhtml); y finalmente estan los proveedores que no tienen vergüenza y simplemente utilizan la MAC Adress disponible para cualquier dispositivo Wifi para que pueda ver la red.
 <br />
 
-Así los muchos de los métodos de asignación de claves WEP o WPA por default suelen ser vulnerados fácilmente una vez que se descubre algun patron en ellos.
+Así, los muchos de los métodos de asignación de claves WEP o WPA por default suelen ser vulnerados fácilmente una vez que se descubre algun patron en ellos.
 <br />
 
 Este es el caso de los Routers Ubee, que provee la compañía Cablecom.
@@ -35,7 +35,7 @@ Mi investigación comenzo hace unos 2 años, cuando crackeaba todo lo que podía
 Paso el tiempo y muchos proveedores notaron que el estandar WEP era fácilmente crackeado en minutos, así que tuvieron algo de consideración y decidieron habilitar los dispositivos con WPA por defecto.
 <br />
 
-Fue entonces que programe mi primer script para generar un diccionario con el sufijo de estas redes, lo cual resulto poco práctico, ya que tendría que probar 255 * 255 * 255 claves, que es igual a **16581375**, considerando que mi modesto procesador alcanza a validar aproximadamente 600 k/s, este proceso me llevaría al rededor de 7 horas, que tal vez no sune tan mal, si no fuera porque en práctica resulta siempre ser más tiempo, además de que nunca logre crackear ninguna clave de esta manera, yo se que existen servicios en la nube que utilizan varios procesadores para calcular estas claves en segundos, pero esta es una investigación independiente, y no quería gastar dinero en ello.
+Fue entonces que programe mi primer script para generar un diccionario con el sufijo de estas redes, lo cual resulto poco práctico, ya que tendría que probar 255 * 255 * 255 claves, que es igual a **16581375**, considerando que mi modesto procesador alcanza a validar aproximadamente 600 k/s, este proceso me llevaría al rededor de 7 horas, que tal vez no sune tan mal, si no fuera porque en práctica resulta siempre ser más tiempo, además de que nunca logre crackear ninguna clave de esta manera, yo se que existen servicios en la [nube](https://www.cloudcracker.com/) que utilizan varios procesadores para calcular estas claves en segundos, pero esta es una investigación independiente, y no quería gastar dinero en ello.
 <br />
 
 Semanas más tarde ocurrió un cambio de oficina y entonces uno de mis compañeros decidió contratar Cablecom como servicio de internet, obviamente cambiando el nombre de la red y la clave por default, sin embargo, aun pude ver anotada en la caja del router la clave WPA original y el nombre de la red, donde se presentaba una vez más el mismo patrón, sin embargo obtuve aun más información, resulta que la clave por default correspondía a los últimos 5 octetos de la dirección MAC pero del RF, no del Wifi, esto tiene sentido, ya que cada interfaz del dispositivo puede tener su propia dirección MAC independiente.
@@ -77,7 +77,7 @@ Llevado a la práctica, me tomo 3 minutos calcular la clave de red de la que sol
 
 ###Crackeando Routers Axtel
 
-Para los routers de Axtel (generalmente Zhone) ocurre algo similar, solo que en este caso la clave solo consiste en 4 octetos, por lo que si el nombre de la red es **AXTEL-0123**, la clave sería **????0123** , y 225 * 225 osea **65025** posibles resultados, despues de hayar la clave la busque en la base de datos de la IEEE, pero no había nada similar así que puede decirse que estos números son Aleatorios o probablemente consecutivos.
+Para los routers de Axtel (generalmente Zhone) ocurre algo similar, solo que en este caso la clave solo consiste en 4 octetos, por lo que si el nombre de la red es **AXTEL-0123**, la clave sería **????0123** , y 225 * 225 osea **65025** posibles resultados, despues de hallar la clave la busque en la base de datos de la IEEE, pero no había nada similar así que puede decirse que estos números son Aleatorios o probablemente consecutivos.
 
 Notas:
 ---
