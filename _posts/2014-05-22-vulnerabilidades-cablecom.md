@@ -66,9 +66,9 @@ Con una dirección MAC del RF:  00:14:A4:00:01:23
 
 Clave : 	 14A4000123
 	
-- Los dígitos uno de los posibles 89 prefijos: 14A4
-- Un número aleatorio de 0 a 255: 				 00
-- Los últimos 2 octetos del nombre de la red:  0123	  
+- Los dígitos de uno de los posibles 89 prefijos: 14A4
+- Un número aleatorio de 0 a 255 en hexagesimal:  00
+- Los últimos 2 octetos del nombre de la red:     0123	  
 
 Esto redujo de 16581375 posibilidades a solo 22695, que a 600k/s, resultan 37s, únicamente para calcular la clave
 
