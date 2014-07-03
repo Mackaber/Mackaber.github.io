@@ -3,9 +3,9 @@ layout: post
 title: "Vulnerabilidades en Routers Cablecom (Ubee) y Axtel (Zhone)"
 date: 2014-05-22 05:40:00
 ---
-
-<img src="https://lh4.googleusercontent.com/-EddI_LXwxE0/U351ih6jr4I/AAAAAAAAHFA/gnM7I-hFX3o/w285-h507-no/IMG_20140522_105405500_HDR.jpg" style="width:150px;text-align:center;margin-left: 200px;"> 
-
+<div style="text-align:center">
+	<img src="https://lh4.googleusercontent.com/-EddI_LXwxE0/U351ih6jr4I/AAAAAAAAHFA/gnM7I-hFX3o/w285-h507-no/IMG_20140522_105405500_HDR.jpg" style="width:150px;"> 
+</div>
 Advertencia
 ---
 <div style="color:red;font-weight:bold;">
@@ -40,8 +40,9 @@ Fue entonces que programe mi primer script para generar un diccionario con el su
 
 Semanas más tarde ocurrió un cambio de oficina y entonces uno de mis compañeros decidió contratar Cablecom como servicio de internet, obviamente cambiando el nombre de la red y la clave por default, sin embargo, aun pude ver anotada en la caja del router la clave WPA original y el nombre de la red, donde se presentaba una vez más el mismo patrón, sin embargo obtuve aun más información, resulta que la clave por default correspondía a los últimos 5 octetos de la dirección MAC pero del RF, no del Wifi, esto tiene sentido, ya que cada interfaz del dispositivo puede tener su propia dirección MAC independiente.
 <br />
-
-<img src="https://lh6.googleusercontent.com/-u0Q8T8LKf0A/U352w0evFvI/AAAAAAAAHFs/gGGelewKFrI/w877-h493-no/IMG_20140522_105426290.jpg" style="width:500px;"> 
+<div style="text-align:center">
+	<img src="https://lh6.googleusercontent.com/-u0Q8T8LKf0A/U352w0evFvI/AAAAAAAAHFs/gGGelewKFrI/w877-h493-no/IMG_20140522_105426290.jpg" style="width:500px;"> 
+</div>
 <br />
 
 Un día que el enlace de Cablecom fallo, al no encontrar que hacer sin internet, decidí tratar de calcular alguna relación entre la dirección MAC del RF y la dirección MAC del wifi, después de andar jugando con los números y Xorearlos de forma similar que con mac2wepkey llegue a la conclusión de que estos 2 no tenían ninguna relación.
