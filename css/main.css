@@ -1,160 +1,94 @@
-/*****************************************************************************/
-/*
-/* Common
-/*
-/*****************************************************************************/
 
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
+/*------------------------------------------- GENERAL -------------------------------------------------*/
+
+html {
+  min-height: 100% !important;
+  height: 100%;
 }
 
-html, body { height: 100%; }
-
-/*body {
-  background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
-  font-size: small;
-  text-align: center;
-}*/
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
-
-h1 { margin-bottom: 1em; }
-p { margin: 1em 0; }
-
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
-
-/*****************************************************************************/
-/*
-/* Home
-/*
-/*****************************************************************************/
-.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
-}
-
-.posts li {
-  line-height: 1.75em;
-}
-
-.posts span {
-  color: #aaa;
-/*  font-family: Monaco, "Courier New", monospace;*/
-  font-size: 80%;
-}
-
-/*****************************************************************************/
-/*
-/* Site
-/*
-/*****************************************************************************/
-
-.site {
-  font-size: 115%;
-  text-align: justify;
-  width: 42em;
-  margin: 3em auto 2em;
-  line-height: 1.5em;
-}
-
-.header a {
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.title {
-  display: inline-block;
-  margin-bottom: 2em;
-}
-
-.title a {
-  color: #a00;
-}
-
-.title a:hover {
-  color: #000;
-}
-
-.header a.extra {
-  color: #aaa;
-  margin-left: 1em;
-}
-
-.header a.extra:hover {
-  color: #000;
-}
-
-.meta {
-  color: #aaa;
-}
-
-.footer {
-  font-size: 80%;
-  color: #666;
-  border-top: 4px solid #eee;
-  margin-top: 2em;
-  overflow: hidden;
-}
-
-.footer .contact {
-  float: left;
-  margin-right: 3em;
-}
-
-.footer .contact a {
-  color: #8085C1;
-}
-
-.footer .rss {
-  margin-top: 1.1em;
-  margin-right: -.2em;
-  float: right;
-}
-
-.footer .rss img {
-  border: 0;
-}
-
-/*****************************************************************************/
-/*
-/* Posts
-/*
-/*****************************************************************************/
-
-/* standard */
-.post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
-}
-
-.post ul, .post ol {
-  margin-left: 1.35em;
-}
-
-.post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
-.post pre code {
-  border: none;
-}
-
-/* terminal */
-.post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
+body {
+  background-color: #141414;
   color: #FFF;
+  font-family: Hack, monospace;
 }
 
-.post pre.terminal code {
-  background-color: #333;
+h1,h2,h3,h4,h5 {
+  color: #F9EE98;
+}
+
+a {
+  color: #627396;
+}
+
+a:hover {
+  color: #4F5E84;
+}
+
+a:visited {
+  color: #89708C;
+}
+
+img {
+  max-width: 100%;
+}
+
+.content {
+  padding:30px;
+  height:100%;
+}
+
+.tags {
+  color: #C4543B;
+}
+
+/*------------------------------------------- COLLAPSE -------------------------------------------------*/
+
+.collapse {
+  font-size: 31px;
+  height:200px;
+  width: 100%;
+  height: 45px;
+  background-color: #161719;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.collapse:hover {
+  background-color: #666;
+}
+
+.collapse + input {
+  display:none;
+}
+
+.collapse + input + * {
+  height:0px;
+  overflow: hidden;
+  -webkit-transition: height 0.5s; /* Safari */
+  transition: height 0.5s;
+}
+
+.collapse + input:checked + * {
+  height:200px;
+  -webkit-transition: height 0.5s; /* Safari */
+  transition: height 0.5s;
+}
+
+/*------------------------------------------- MEDIA -------------------------------------------------*/
+
+
+@media (min-width: 768px) {
+
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    float: left;
+    width: 20em;
+  }
+
+  .content{
+    margin-left: 20em;
+    max-width: 70em;
+  }
 }

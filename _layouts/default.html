@@ -1,73 +1,46 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
-
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
-
-        <!-- Le styles -->
-        <link href="/css/bootstrap.css" rel="stylesheet">
-        <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="/js/google-code-prettify/prettify.css" rel="stylesheet">
-        <style type="text/css"></style><style id="holderjs-style" type="text/css">.holderjs-fluid {font-size:16px;font-weight:bold;text-align:center;font-family:sans-serif;margin:0}</style>
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Mackaber Witckin<br />
-                Master Builder<br />
-                mkbravo555@gmail.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/mackaber">github.com/mackaber</a><br />
-                <a href="https://twitter.com/mackaber">twitter.com/mackaber</a><br />
-              </p>
-            </div>
-          </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-hack/2.018/css/hack-extended.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <meta charset=utf-8 />
+    <title>JS Bin</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div style="text-align:center">
+            <img src="/images/twimi_logo.svg" alt="" style="width: 220px;" />
         </div>
+        <div class="collapse-menu">
+            <label class="collapse" for="_1">&#9776;</label>
+            <input id="_1" type="checkbox">
+            <div>
+                <div class="footer">
+                    <div class="contact">
+                        Mackaber Witckin<br />
+                        Master Builder<br />
+                        mkbravo555@gmail.com
+                    </div>
+                </div>
+                <div class="contact">
+                    <a href="https://github.com/mackaber">github.com/mackaber</a><br />
+                    <a href="https://twitter.com/mackaber">twitter.com/mackaber</a><br />
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap-386.js"></script>
-    <script src="/js/bootstrap-transition.js"></script>
-    <script src="/js/bootstrap-alert.js"></script>
-    <script src="/js/bootstrap-modal.js"></script>
-    <script src="/js/bootstrap-dropdown.js"></script>
-    <script src="/js/bootstrap-scrollspy.js"></script>
-    <script src="/js/bootstrap-tab.js"></script>
-    <script src="/js/bootstrap-tooltip.js"></script>
-    <script src="/js/bootstrap-popover.js"></script>
-    <script src="/js/bootstrap-button.js"></script>
-    <script src="/js/bootstrap-collapse.js"></script>
-    <script src="/js/bootstrap-carousel.js"></script>
-    <script src="/js/bootstrap-typeahead.js"></script>
-    <script src="/js/bootstrap-affix.js"></script>
-
-    <script src="/js/holder/holder.js"></script>
-    <script src="/js/google-code-prettify/prettify.js"></script>
-
-    <script src="/js/application.js"></script>
-    </body>
+    <div class="content">
+        {{ content }}
+        <div class="tags">
+          <span>tag test</span>
+      </div>
+  </div>
+</body>
+</body>
 </html>
