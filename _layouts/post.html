@@ -5,5 +5,11 @@ layout: default
 <p class="meta">{{ page.date | date_to_string }}</p>
 
 <div class="post">
-{{ content }}
+{{ page.content }}
+</div>
+<h5>TAGS:</h5> 
+<div class="tags">
+	{% for tag in page.tags %}
+	  |<span>{{ tag }}</span>|
+	{% endfor %}
 </div>

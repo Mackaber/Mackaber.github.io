@@ -1,7 +1,13 @@
 ---
 layout: post
-title:  "Hello World!"
-date:   2014-04-21 02:10:00
+title: "Hello World!"
+zorg: "testing"
+date: 2014-04-21 02:10:00
+categories:
+  - Technology
+tags:
+- Introduction
+- Hello World
 ---
 
 This is yet another attempt to start a personal blog (I already tried doing a blog of [security], and another blog about [poems]), I even tried to collaborate in a technology [blog]. 

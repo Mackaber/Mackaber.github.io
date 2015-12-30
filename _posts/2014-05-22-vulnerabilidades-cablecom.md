@@ -2,6 +2,9 @@
 layout: post
 title: "Vulnerabilidades en Routers Cablecom (Ubee) y Axtel (Zhone)"
 date: 2014-05-22 05:40:00
+tags:
+ - security
+ - hacking
 ---
 <div style="text-align:center">
 	<img src="https://lh4.googleusercontent.com/-EddI_LXwxE0/U351ih6jr4I/AAAAAAAAHFA/gnM7I-hFX3o/w285-h507-no/IMG_20140522_105405500_HDR.jpg" style="width:150px;">
