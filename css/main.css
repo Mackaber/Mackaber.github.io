@@ -43,6 +43,12 @@ img {
 
 /*------------------------------------------- COLLAPSE -------------------------------------------------*/
 
+.info {
+  margin: 20px;
+}
+
+/*------------------------------------------- COLLAPSE -------------------------------------------------*/
+
 .collapse {
   font-size: 31px;
   width: 100%;
@@ -76,8 +82,19 @@ img {
 
 /*------------------------------------------- MEDIA -------------------------------------------------*/
 
-
 @media (min-width: 768px) {
+
+  label.collapse {
+    display: none;
+  }
+
+  .collapse + input + * {
+    height:200px;
+  }
+
+  .collapse + input:checked + * {
+    height:200px;
+  }
 
   .sidebar {
     position: fixed;
@@ -90,4 +107,5 @@ img {
     margin-left: 20em;
     max-width: 70em;
   }
+
 }

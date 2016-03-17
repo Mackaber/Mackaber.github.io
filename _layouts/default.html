@@ -14,32 +14,59 @@
 <body>
     <div class="sidebar">
         <div style="text-align:center">
-        <a href="/">
-            <img src="/images/twimi_logo.svg" alt="" style="width: 220px;" />            
-        </a>
+            <a href="/">
+                <img src="/images/twimi_logo.svg" alt="" style="width: 220px;" />            
+            </a>
         </div>
         <div class="collapse-menu">
             <label class="collapse" for="_1">&#9776;</label>
             <input id="_1" type="checkbox">
-            <div>
+            <div class="info">
+                <script>
+                  (function() {
+                    var cx = '012932525333975564995:gmvcmhurlc4';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                        '//cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                  })();
+                </script>
+                <gcse:searchbox-only></gcse:searchbox-only>
+                <br />
                 <div class="footer">
                     <div class="contact">
                         Mackaber Witckin<br />
                         Master Builder<br />
-                        mkbravo555@gmail.com
+                        <a href="mailto:x@mackaber.me">x@mackaber.me</a>
                     </div>
                 </div>
+                <br />
                 <div class="contact">
                     <a href="https://github.com/mackaber">github.com/mackaber</a><br />
                     <a href="https://twitter.com/mackaber">twitter.com/mackaber</a><br />
                 </div>
-            </div>
-        </div>
-    </div>
+                <br />
+                <div class="tags_and_content">
+                    <span>TAGS:</span>
+                    <ul class="tags">
+                      {% for tag in site.tags %}
+                      <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
+                          <a href="#{{ tag | first | slugize }}">
+                              {{ tag | first }} ({{ tag | last | size }})
+                          </a>
+                      </li>
+                      {% endfor %}
+                  </ul>
+              </div>
 
-    <div class="content">
-        {{ content }}
+      </div>
   </div>
-</body>
+</div>
+<div class="content">
+    {{ content }}
+</div>
 </body>
 </html>
