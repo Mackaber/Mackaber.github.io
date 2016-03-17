@@ -48,19 +48,6 @@
                     <a href="https://github.com/mackaber">github.com/mackaber</a><br />
                     <a href="https://twitter.com/mackaber">twitter.com/mackaber</a><br />
                 </div>
-                <br />
-                <div class="tags_and_content">
-                    <span>TAGS:</span>
-                    <ul class="tags">
-                      {% for tag in site.tags %}
-                      <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
-                          <a href="#{{ tag | first | slugize }}">
-                              {{ tag | first }} ({{ tag | last | size }})
-                          </a>
-                      </li>
-                      {% endfor %}
-                  </ul>
-              </div>
 
       </div>
   </div>
