@@ -69,13 +69,14 @@ img {
 
 .collapse + input + * {
   height:0px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   -webkit-transition: height 0.5s; /* Safari */
   transition: height 0.5s;
+  overflow:hidden;
 }
 
 .collapse + input:checked + * {
-  height:200px;
+  height:300px;
   -webkit-transition: height 0.5s; /* Safari */
   transition: height 0.5s;
 }
@@ -89,11 +90,11 @@ img {
   }
 
   .collapse + input + * {
-    height:200px;
+    height:300px;
   }
 
   .collapse + input:checked + * {
-    height:200px;
+    height:300px;
   }
 
   .sidebar {
