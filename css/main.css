@@ -28,6 +28,10 @@ a:visited {
   color: #89708C;
 }
 
+b {
+  color: #8F9D6A;
+}
+
 img {
   max-width: 100%;
 }
@@ -101,12 +105,12 @@ img {
     position: fixed;
     height: 100%;
     float: left;
-    width: 20em;
+    width: 18em;
   }
 
   .content{
-    margin-left: 20em;
-    max-width: 70em;
+    margin-left: 22em;
+    max-width: 72em;
   }
 
 }
