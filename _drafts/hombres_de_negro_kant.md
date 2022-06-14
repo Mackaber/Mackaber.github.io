@@ -11,4 +11,4 @@ Cuando eres niño siempre tienes algún tipo de fantasía. En mi caso, a mi me f
 
 ### La premisa
 
-
+Hombres de Negro trata acerca de una sociedad secreta que se encarga de dar resguardo a alienígenas en la tierra además de tratar asuntos intergalácticos. La trama sigue a James (Will Smith), más tarde conocido como Agente J. 
