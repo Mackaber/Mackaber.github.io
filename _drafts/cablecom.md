@@ -1,6 +1,6 @@
 ---
 title: Cablecom
-date: 2022-06-21 17:10:57.292000000 Z
+date: 2022-06-21 17:10:57 Z
 ---
 
 Vulnerabilidades en Routers Cablecom (Ubee) y Axtel (Zhone)

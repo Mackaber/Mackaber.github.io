@@ -1,6 +1,6 @@
 ---
 title: Reddit
-date: 2022-06-21 17:10:57.326000000 Z
+date: 2022-06-21 17:10:57 Z
 ---
 
 From Facebook to Reddit
