@@ -1,9 +1,9 @@
 ---
-layout: post
-title: "Escribiendo un blog (otra vez)"
-date: Fri Jun 10 21:23:58 2022
+title: Escribiendo un blog (otra vez)
+date: 2022-06-10 21:23:58 Z
 tags:
- - reflexion
+- reflexion
+layout: post
 ---
 
 Ya lleva mucho tiempo que tengo ganas de escribir algo, de sacar las ideas de mi cabeza, pensaba en cosas como hacer un TikTok, hacer vídeos en un canal de Youtube, u otras cosas. Pero siempre resulta en una enorme carga y ansiedad. Principalmente por ese sentimiento del "¿Para qué?". Cuando uno crea contenido usualmente lo primero que se le viene a la mente es "¿Quién lo va a ver?" y usualmente esos dos pensamientos se juntan: "¿Para qué?, ¿Quién lo va a ver?". Vivimos en una época en la cual en muy poco tiempo hay montones y montones de información por todos lados. Durante mucho tiempo hubo silencio y ahora todo mundo habla tanto y al mismo tiempo que sólo se puede escuchar el ruido. Es como cuando uno visita un bar donde está la música muy fuerte, haces un esfuerzo por alzar la voz y las personas que quieren escucharte se acercan a tí y tratan de interpretar lo que dices.

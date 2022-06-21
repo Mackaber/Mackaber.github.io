@@ -1,12 +1,12 @@
 ---
-layout: post
-title: "Hello World!"
-date: 2014-04-21 02:10:00
+title: Hello World!
+date: 2014-04-21 02:10:00 Z
 categories:
-  - Technology
-  - Hello World
+- Technology
+- Hello World
 tags:
 - Introduction
+layout: post
 ---
 
 This is yet another attempt to start a personal blog (I already tried doing a blog of [security], and another blog about [poems]), I even tried to collaborate in a technology [blog]. 
