@@ -49,7 +49,7 @@ ul.tags  {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  overflow: scroll;
+  overflow: visible;
   max-height: 100%;
 }
 
