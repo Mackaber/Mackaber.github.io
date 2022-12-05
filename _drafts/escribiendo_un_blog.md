@@ -12,7 +12,13 @@ En cierto modo es como en esa escena de "TodoPoderoso (2003)"
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WHBQC0XYvYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-La única diferencia es que las voces no están en tu cabeza, están en tu celular. En Twitter, en Reddit, en Whatsapp, los Podcast, los Vlogs. Todo mundo demandando algo de atención. Y luego llega uno con su síndrome de impostor preguntándose constantemente: "¿Porqué mi opinión es más importante que la de los demás?" "¿Quién soy yo para que la gente lo escuche?". Claro, tenemos la libertad de expresión. Podemos decir lo que queramos pero no sabemos si seremos escuchados.
+La única diferencia es que las voces no están en tu cabeza, están en tu celular. En Twitter, en Reddit, en Whatsapp, los Podcast, los Vlogs. Todo mundo demandando algo de atención. Y luego en mi caso, llego con mi síndrome de impostor preguntándome constantemente:
+
+_"¿Porqué mi opinión es más importante que la de los demás?"_
+
+_"¿Quién soy yo para que la gente lo escuche?"._
+
+Son dos preguntas que vienen directamente del ego, empezando porque asumo que para ser escuchado mi opinión debe ser "más importante". Lo cual irónicamente termina volviéndose en una forma de autosabotaje.
 
 Ahora bien...
 
