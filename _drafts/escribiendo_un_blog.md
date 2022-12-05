@@ -3,6 +3,8 @@ title: Escribiendo un blog (otra vez)
 date: 2022-06-10T21:23:58.000+00:00
 tags:
 - reflexion
+- introduction
+- posts-in-spanish
 layout: post
 
 ---
@@ -26,7 +28,7 @@ Sé que mucha gente escribe su blog a forma de diario, yo personalmente he estad
 
 Pero fuera de eso, el proceso de leer/escribir se me hace muy amigable, uno toma lo que le sirve, se salta el resto (usualmente lo que ya sabe). Como si se tratara de una mesa de postres
 
-![Homero en la mesa de postres](../images/postres.gif)
+![](/uploads/images/postres.gif)
 
 Quien sabe, Quizás un podcast también podría ser buena idea...
 
