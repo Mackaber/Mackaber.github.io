@@ -16,8 +16,8 @@ Lastly, I'm using [Jekyll], and [Github pages] to host this blog, and I'm probab
 
 Have fun! :D
 
-[security]: securityisaj0ke.blogspot.mx
-[poems]: http://pdadme.blogspot.mx/
-[blog]: http://plusbits.mx/
-[Jekyll]: http://jekyllrb.com/
+[security]: https://securityisaj0ke.blogspot.mx
+[poems]: https://pdadme.blogspot.mx/
+[blog]: https://plusbits.mx/
+[Jekyll]: https://jekyllrb.com/
 [Github pages]: https://pages.github.com/
