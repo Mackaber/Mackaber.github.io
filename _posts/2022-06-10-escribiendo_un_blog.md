@@ -13,7 +13,7 @@ Ya lleva mucho tiempo que tengo ganas de escribir algo, de sacar las ideas de mi
 
 En cierto modo es como en esa escena de "TodoPoderoso (2003)"
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WHBQC0XYvYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" style=" max-width: 100%;" src="https://www.youtube.com/embed/WHBQC0XYvYg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 La única diferencia es que las voces no están en tu cabeza, están en tu celular. En Twitter, en Reddit, en Whatsapp, los Podcast, los Vlogs. Todo mundo demandando algo de atención. Y luego en mi caso, llego con mi síndrome de impostor preguntándome constantemente:
 
