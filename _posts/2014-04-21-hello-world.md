@@ -1,13 +1,11 @@
 ---
 title: Hello World!
 date: 2014-04-21T02:10:00.000+00:00
-categories:
-- Technology
-- Hello World
 tags:
-- Introduction
-- Posts in English
+- introduction
+- posts-in-english
 layout: post
+reddit_link: https://www.reddit.com/r/Mackaber/comments/zcb4i7/hello_world/
 
 ---
 This is yet another attempt to start a personal blog (I already tried doing a blog of [security], and another blog about [poems]), I even tried to collaborate in a technology [blog]. 

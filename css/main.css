@@ -42,7 +42,29 @@ img {
 }
 
 .tags {
-  color: #C4543B;
+  color: #141414;
+}
+
+ul.tags  {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow: scroll;
+  max-height: 100%;
+}
+
+.tags a {
+  text-decoration: none;
+  color: #141414;
+  cursor: pointer;
+}
+
+.tags span, .tags li {
+  background-color: #C4543B;
+  border-radius: 20px;
+  padding: 4px;
+  font-size: 12px;
+  margin: 5px;
 }
 
 /*------------------------------------------- COLLAPSE -------------------------------------------------*/
@@ -72,15 +94,14 @@ img {
 }
 
 .collapse + input + * {
-  height:0px;
-  /*overflow: hidden;*/
+  min-height: 300px;
   -webkit-transition: height 0.5s; /* Safari */
   transition: height 0.5s;
   overflow:hidden;
 }
 
 .collapse + input:checked + * {
-  height:300px;
+  min-height:300px;
   -webkit-transition: height 0.5s; /* Safari */
   transition: height 0.5s;
 }
@@ -94,11 +115,11 @@ img {
   }
 
   .collapse + input + * {
-    height:300px;
+    min-height:300px;
   }
 
   .collapse + input:checked + * {
-    height:300px;
+    min-height:300px;
   }
 
   .sidebar {
@@ -113,4 +134,12 @@ img {
     max-width: 72em;
   }
 
+}
+
+@media (max-width: 767px) { 
+  .collapse + input + * {
+    max-height: 0px;
+    min-height: 0px;
+    overflow: hidden;
+  }
 }

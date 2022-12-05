@@ -14,7 +14,7 @@
     <div class="sidebar">
         <div style="text-align:center">
             <a href="/">
-                <img src="/images/logo-final.svg" alt="" style="width: 220px;" />            
+                <img src="/uploads/images/logo-final.svg" alt="" style="width: 220px;" />            
             </a>
         </div>
         <div class="collapse-menu">
@@ -53,7 +53,7 @@
                     <span>TAGS:</span>
                     <ul class="tags">
                       {% for tag in site.tags %}
-                      <li style="font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 70  }}%">
+                      <li>
                           <a href="/tag/{{ tag | first | slugize }}">
                               {{ tag | first }} ({{ tag | last | size }})
                           </a>
