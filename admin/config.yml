@@ -1,5 +1,6 @@
 # config.yml
 
+site_url: https://mackaber.me
 backend:
   name: github
   repo: mackaber/Mackaber.github.io
