@@ -2,7 +2,7 @@
 
 backend:
   name: github
-  repo: Mackaber/Mackaber.github.io
+  repo: mackaber/Mackaber.github.io
 media_folder: 'assets/uploads'
 collections:
   - name: 'blog'
