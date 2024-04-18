@@ -3,6 +3,7 @@
 backend:
   name: github
   repo: mackaber/Mackaber.github.io
+  branch: master
 media_folder: 'assets/uploads'
 collections:
   - name: 'blog'
