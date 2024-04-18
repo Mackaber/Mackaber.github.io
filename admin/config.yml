@@ -5,8 +5,9 @@ backend:
   name: github
   repo: mackaber/Mackaber.github.io
   branch: master
-  auth_endpoint: /auth
-media_folder: 'assets/uploads'
+media_folder: 'uploads'
+# This line should *not* be indented
+publish_mode: editorial_workflow
 collections:
   - name: 'blog'
     label: 'Blog'
