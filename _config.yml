@@ -1,6 +1,17 @@
-name: The web is my enemy
+---
+title: Mackaber's Personal Site
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+name: Mackaber's Personal Site
 markdown: redcarpet
 highlighter: true
-tag_feed_layout: tag_page
-tag_feed_dir: tag
+tag_page_layout: tag_page
+tag_page_dir: tag
 tag_permalink_style: pretty
+

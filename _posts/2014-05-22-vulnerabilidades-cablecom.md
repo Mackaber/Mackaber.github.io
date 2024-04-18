@@ -1,13 +1,16 @@
 ---
-layout: post
-title: "Vulnerabilidades en Routers Cablecom (Ubee) y Axtel (Zhone)"
-date: 2014-05-22 05:40:00
+title: Vulnerabilidades en Routers Cablecom (Ubee) y Axtel (Zhone)
+date: 2014-05-22 05:40:00 Z
 tags:
- - security
- - hacking
+- security
+- hacking
+- posts-in-spanish
+layout: post
+reddit_link: https://www.reddit.com/r/Mackaber/comments/zcvit4/vulnerabilidades_en_routers_cablecom_ubee_y_axtel/?
 ---
+
 <div style="text-align:center">
-	<img src="https://lh4.googleusercontent.com/-EddI_LXwxE0/U351ih6jr4I/AAAAAAAAHFA/gnM7I-hFX3o/w285-h507-no/IMG_20140522_105405500_HDR.jpg" style="width:150px;">
+	<img src="/uploads/images/IMG_20140522_105405500_HDR.jpg" style="width:150px;">
 </div>
 Advertencia
 ---
@@ -45,7 +48,7 @@ Semanas más tarde ocurrió un cambio de oficina y entonces uno de mis compañer
 
 
 <div style="text-align:center">
-	<img src="https://lh6.googleusercontent.com/-u0Q8T8LKf0A/U352w0evFvI/AAAAAAAAHFs/gGGelewKFrI/w877-h493-no/IMG_20140522_105426290.jpg" style="width:500px;">
+	<img src="/uploads/images/IMG_20140522_105426290.jpg" style="width:500px;">
 </div>
 
 Un día que el enlace de Cablecom fallo, al no encontrar que hacer sin internet, decidí tratar de calcular alguna relación entre la dirección MAC del RF y la dirección MAC del wifi, después de andar jugando con los números y Xorearlos de forma similar que con mac2wepkey llegue a la conclusión de que estos 2 no tenían ninguna relación.
