@@ -11,7 +11,16 @@ collections:
 name: Mackaber's Personal Site
 markdown: redcarpet
 highlighter: true
-tag_page_layout: tag_page
-tag_page_dir: tag
-tag_permalink_style: pretty
+jekyll-archives:
+  enabled: all
+  layout: archive
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
+plugins:
+  - jekyll-archives
+  - jekyll-debug
 
