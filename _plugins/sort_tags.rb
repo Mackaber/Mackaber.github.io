@@ -11,7 +11,6 @@ module Jekyll
         end
   
         # Sort tags by the number of posts, in descending order
-        binding.pry
         sorted_tags = tag_counts.sort_by { |_tag, count| -count }
   
         # Store the sorted tags in site data for access in Liquid templates
