@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -10,18 +11,19 @@
     <link rel="stylesheet" href="/css/main.css">
     <meta charset=utf-8 />
 </head>
+
 <body>
     <div class="sidebar">
         <div style="text-align:center">
             <a href="/">
-                <img src="/uploads/images/logo-final.svg" alt="" style="width: 220px;" />            
+                <img src="/uploads/images/logo-final.svg" alt="" style="width: 220px;" />
             </a>
         </div>
         <div class="collapse-menu">
             <label class="collapse" for="_1">&#9776;</label>
             <input id="_1" type="checkbox">
             <div class="info">
-<!--                 <script>
+                <!--                 <script>
                   (function() {
                     var cx = '012932525333975564995:gmvcmhurlc4';
                     var gcse = document.createElement('script');
@@ -52,20 +54,34 @@
                 <div class="tags_and_content">
                     <span>TAGS:</span>
                     <ul class="tags">
-                      {% for tag in site.tags %}
-                      <li>
-                          <a href="/tag/{{ tag | first | slugize }}">
-                              {{ tag | first }} ({{ tag | last | size }})
-                          </a>
-                      </li>
-                      {% endfor %}
-                  </ul>
-              </div>
-      </div>
-  </div>
-</div>
-<div class="content">
-    {{ content }}
-</div>
+                        <!-- Sort tags by size -->
+                        {% capture my_hash %}
+                        {
+                            "name": "John",
+                            "age": 30,
+                            "city": "New York"
+                        }
+                        {% endcapture %}
+                        {% assign my_json = my_hash %}
+                        <script>console.log(`{{ my_json }}`);</script>
+                        {% assign tag_sizes = site.tags | structured_data %}
+                        <script>console.log(`{{ tag_sizes }}`);</script>
+                        {% assign sorted_tags = site.tags %}
+                        {% for tag in sorted_tags %}
+                        <li>
+                            <a href="/tag/{{ tag | first | slugize }}">
+                                {{ tag | first }} ({{ tag | last | size }})
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        {{ content }}
+    </div>
 </body>
+
 </html>
