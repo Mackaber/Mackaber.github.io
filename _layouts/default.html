@@ -55,22 +55,10 @@
                     <span>TAGS:</span>
                     <ul class="tags">
                         <!-- Sort tags by size -->
-                        {% capture my_hash %}
-                        {
-                            "name": "John",
-                            "age": 30,
-                            "city": "New York"
-                        }
-                        {% endcapture %}
-                        {% assign my_json = my_hash %}
-                        <script>console.log(`{{ my_json }}`);</script>
-                        {% assign tag_sizes = site.tags | structured_data %}
-                        <script>console.log(`{{ tag_sizes }}`);</script>
-                        {% assign sorted_tags = site.tags %}
-                        {% for tag in sorted_tags %}
+                        {% for tag in site.data.sorted_tags %}
                         <li>
                             <a href="/tag/{{ tag | first | slugize }}">
-                                {{ tag | first }} ({{ tag | last | size }})
+                                {{ tag | first }} ({{ tag | last }})
                             </a>
                         </li>
                         {% endfor %}
