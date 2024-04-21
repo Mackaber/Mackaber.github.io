@@ -7,10 +7,8 @@ tags:
   - othert-hings
   - security
 ---
-{{date}}
+2024-04-21
+  ---
+  
 
-Hola mundo!!!
-
-
-
-{{date}}
+jijijiji
