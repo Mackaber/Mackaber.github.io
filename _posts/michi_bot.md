@@ -1,3 +1,7 @@
+---
+title: Michibot
+date: 2024-04-21T13:38:00.000Z
+---
 Este probablemente sea uno de los primeros proyectos que documento sin aun haberlo iniciado, lo cual debe ser una gran ventaja para quien este leyendo, porque a medida que los problemas surjan ire comentando sus soluciones.
 
 Bill of Materials:
