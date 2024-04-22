@@ -7,8 +7,16 @@ layout: default
   <h1>Yo rompo cosas ¯\_(ツ)_/¯</h1>
   {% assign last_post = site.posts.first %} 
   <h2>Última entrada: {{ last_post.title }}</h2>
+  {% assign paragraphs = last_post.content | split: '<p>' %}
+  <script>console.log("{{ paragraphs[1] }}");</script>
+  {% capture first_two_paragraphs %}
+    <p>
+    {{ paragraphs[1] }}
+    <p>
+    {{ paragraphs[2] }}
+  {% endcapture %}
   <div class="post">
-    {{ last_post.content }}
+    {{ first_two_paragraphs  }}
   </div>
 
   <a href="{{ last_post.url }}">Continuar leyendo...</a>
