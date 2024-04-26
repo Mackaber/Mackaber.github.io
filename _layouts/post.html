@@ -9,7 +9,7 @@ layout: default
 	{{ page.content }}
 </div>
 <h5>TAGS:</h5> 
-<div class="tags">
+<div class="blog-tags">
 	{% for tag in page.tags %}
 	<a href="/tag/{{ tag | slugify }}"><span>{{ tag }}</span></a>
 	{% endfor %}

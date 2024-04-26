@@ -9,7 +9,6 @@ collections:
     title: Uploads
     output: true
 name: Mackaber's Personal Site
-markdown: redcarpet
 highlighter: true
 jekyll-archives:
   enabled: all
@@ -20,7 +19,13 @@ jekyll-archives:
     day: '/:year/:month/:day/'
     tag: '/tag/:name/'
     category: '/category/:name/'
+kramdown:
+  syntax_highlighter: coderay
+  syntax_highlighter_opts:
+    css: class
+    line_numbers: false
 plugins:
   - jekyll-archives
   - jekyll-debug
+  - kramdown-syntax-coderay
 

@@ -36,16 +36,16 @@ img {
   max-width: 100%;
 }
 
-.content {
+.blog-content {
   padding:30px;
   height:100%;
 }
 
-.tags {
+.blog-tags {
   color: #141414;
 }
 
-ul.tags  {
+ul.blog-tags  {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -53,13 +53,13 @@ ul.tags  {
   max-height: 100%;
 }
 
-.tags a {
+.blog-tags a {
   text-decoration: none;
   color: #141414;
   cursor: pointer;
 }
 
-.tags span, .tags li {
+.blog-tags span, .blog-tags li {
   background-color: #C4543B;
   border-radius: 20px;
   padding: 4px;
@@ -69,7 +69,7 @@ ul.tags  {
 
 /*------------------------------------------- COLLAPSE -------------------------------------------------*/
 
-.info {
+.blog-info {
   margin: 20px;
 }
 
@@ -129,7 +129,7 @@ ul.tags  {
     width: 18em;
   }
 
-  .content{
+  .blog-content {
     margin-left: 22em;
     max-width: 72em;
   }
