@@ -1,0 +1,81 @@
+/* Twilight Theme for CodeRay */
+.CodeRay {
+  background-color: #141414;
+  color: #F8F8F8;
+  border: 1px solid #232323;
+}
+
+.CodeRay .line-numbers {
+  background-color: #141414;
+  color: #5F5A60;
+}
+
+.CodeRay .comment {
+  color: #777;
+}
+
+.CodeRay .keyword {
+  color: #CDA869;
+}
+
+.CodeRay .class {
+  color: #9B703F;
+}
+
+.CodeRay .method {
+  color: #AFC4DB;
+}
+
+.CodeRay .string {
+  color: #8F9D6A;
+}
+
+.CodeRay .type {
+  color: #9B859D;
+}
+
+.CodeRay .number {
+  color: #CF6A4C;
+}
+
+.CodeRay .variable {
+  color: #7587A6;
+}
+
+.CodeRay .attribute {
+  color: #9B703F;
+}
+
+.CodeRay .regexp {
+  color: #E9C062;
+}
+
+.CodeRay .symbol {
+  color: #CF6A4C;
+}
+
+.CodeRay .tag {
+  color: #CDA869;
+}
+
+.CodeRay .directive {
+  color: #CF6A4C;
+}
+
+.CodeRay .annotation {
+  color: #D6D6D6;
+}
+
+.CodeRay .delimiter {
+  color: #F8F8F8;
+  /* Light grey to stand out against the dark background */
+}
+
+.CodeRay .decimal {
+  color: #CF6A4C;
+}
+
+.CodeRay .key {
+  color: #9B859D;
+  /* Styled similarly to types for consistency */
+}

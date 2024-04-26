@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/font-hack/2.018/css/hack-extended.min.css">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/coderay.css">
     <meta charset=utf-8 />
 </head>
 
@@ -53,7 +54,7 @@
                 <br />
                 <div class="tags_and_content">
                     <span>TAGS:</span>
-                    <ul class="tags">
+                    <ul class="blog-tags">
                         <!-- Sort tags by size -->
                         {% for tag in site.data.sorted_tags %}
                         <li>
@@ -67,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="content">
+    <div class="blog-content">
         {{ content }}
     </div>
 </body>
