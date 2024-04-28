@@ -14,9 +14,7 @@ El otro día, mientras navegaba por mis redes sociales, me preguntaba cómo obte
 
 Recordé mi proyecto anterior, [JSONPmagic](https://mackaber.me/2024/04/25/c%C3%B3mo-simplifiqu%C3%A9-el-acceso-a-apis-con-jsonp-magic.html), que también utilizaba peticiones GET para manipular datos de manera similar. Inspirado por herramientas como [Cloudinary](https://cloudinary.com/), que permite a los usuarios transformar y optimizar imágenes a través de URLs, decidí llevar la idea un paso más allá con **Metamagic**. 
 
-
-
-Metamagic nacio de la pregunta  
+Metamagic nacio de la necesidad de querer compartir links de imagenes (que no fueran publicadas por ti) con título y descripción 
 
 Metamagic nació de la idea de darle a cada usuario el poder de decidir cómo aparecen sus enlaces en las redes, transformando cada compartida en una pequeña obra de arte digital. Con Metamagic, simplemente especificas el URL de referencia y ajustas los metatags para personalizar cómo quieres que tu enlace sea visto en otros sitios.
 
