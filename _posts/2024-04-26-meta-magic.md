@@ -26,17 +26,9 @@ Esta foto es un archivo local enviado por una conversación.
 
 ![](/uploads/2024-05-01_16-42.png)
 
-Visualización en Redes Sociales
 
-Veamos algunos ejemplos de cómo Metamagic puede transformar la presentación de tus enlaces en diversas plataformas:
 
-Facebook:
 
-< imagen de Facebook con los metatags renderizados >
-
-WhatsApp:
-
-< imagen de WhatsApp con los metatags renderizados >
 
 El Potencial de Uso Indebido de Metamagic y la Seguridad en Línea
 
