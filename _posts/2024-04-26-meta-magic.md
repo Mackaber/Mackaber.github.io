@@ -30,13 +30,15 @@ Esta foto es un archivo local enviado por una conversación.
 
 ![](/uploads/2024-04-27_20-37.png)
 
-Esta, en cambio si cuenta con un título y descripción (porque en realidad se trata de un link)
+Esta, en cambio si cuenta con un título y descripción (porque en realidad se trata de un link).
 
 ![](/uploads/2024-05-01_16-42.png)
 
-El código para ésto es muy sencillo 
+### **Metamagic**
 
+Metamagic es en realidad un script muy sencillo, recibe los detalles como query parameters y los renderiza en una página de forma dinámica.
 
+El código para ésto luce algo así (implementado en ruby/rack):
 
 ```ruby
 req = Rack::Request.new(env)
@@ -88,11 +90,11 @@ response = """
            """
 ```
 
+### Usando Metamagic de forma maliciosa
 
+Metamagic es un script muy sencillo pero útilpara su caso de uso en específico. Sin embargo no pude evitar pensar que también podría ser utilizado para fines menos éticos. Una práctica preocupante es el uso de Metamagic en conjunto con acortadores de URLs para crear enlaces que, aunque visualmente legítimos, en realidad redirigen a los usuarios a sitios fraudulentos o maliciosos.
 
-El Potencial de Uso Indebido de Metamagic y la Seguridad en Línea
-
-Mientras Metamagic ofrece grandes oportunidades para personalizar la presentación de enlaces en la web, es crucial reconocer que también podría ser utilizado para fines menos éticos. Una práctica preocupante es el uso de Metamagic en conjunto con acortadores de URLs para crear enlaces que, aunque visualmente legítimos, en realidad redirigen a los usuarios a sitios fraudulentos o maliciosos.
+Por ejemplo
 
 ¿Cómo funciona este engaño?
 
@@ -101,11 +103,3 @@ Imagina que recibes un enlace que parece llevar a una noticia importante de un s
 ¿Por qué es efectivo?
 
 Este método es efectivo porque explota la confianza visual. Los usuarios tienden a confiar en enlaces que lucen visualmente legítimos y provienen de fuentes aparentemente fiables. Al modificar los metatags para crear una apariencia engañosa y usar un acortador de URL para ocultar el destino real, los ciberdelincuentes pueden engañar a los usuarios para que hagan clic en enlaces maliciosos sin sospechar.
-
-Fomentando el Uso Responsable
-
-Es fundamental que los desarrolladores y usuarios de herramientas como Metamagic promuevan y practiquen un uso ético y responsable. Al entender y discutir abiertamente estos riesgos, podemos trabajar juntos para mitigar el potencial de daño y asegurar que las innovaciones tecnológicas se utilicen para mejorar y no para perjudicar a otros.
-
-Futuro de Metamagic
-
-Mientras continuo explorando nuevas funcionalidades para Metamagic, estoy particularmente emocionado por ver cómo la comunidad adopta y adapta esta herramienta. La retroalimentación será clave para su evolución, y espero que los usuarios aprovechen Metamagic para enriquecer cómo compartimos contenido en línea.
