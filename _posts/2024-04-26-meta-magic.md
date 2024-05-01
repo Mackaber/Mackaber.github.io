@@ -12,6 +12,14 @@ El otro día, mientras navegaba por mis redes sociales, me preguntaba cómo obte
 
 ![](/uploads/2024-04-27_20-07.png)
 
+En HTML lucen algo así:
+
+```
+<meta property='og:title' content='Algun titulo aqui'>
+```
+
+(og es por [opengraph](https://ogp.me/) que es el estandar creado por facebook)
+
 Recordé mi proyecto anterior, [JSONPmagic](https://mackaber.me/2024/04/25/c%C3%B3mo-simplifiqu%C3%A9-el-acceso-a-apis-con-jsonp-magic.html), que también utilizaba peticiones GET para manipular datos de manera similar. Inspirado por herramientas como [Cloudinary](https://cloudinary.com/), que permite a los usuarios transformar y optimizar imágenes a través de URLs, decidí llevar la idea un paso más allá con **Metamagic**. 
 
 Metamagic nació de la necesidad de querer compartir links de imágenes (que no fueran publicadas por ti) con título y descripción. 
