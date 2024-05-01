@@ -22,11 +22,63 @@ Esta foto es un archivo local enviado por una conversación.
 
 ![](/uploads/2024-04-27_20-37.png)
 
-Ésta, en cambio si cuenta con un título y descripción (porque en realidad se trata de un link)
+Esta, en cambio si cuenta con un título y descripción (porque en realidad se trata de un link)
 
 ![](/uploads/2024-05-01_16-42.png)
 
+El código para ésto es muy sencillo 
 
+
+
+```ruby
+req = Rack::Request.new(env)
+
+url = req['url']
+orgn = req['orgn']
+title = req['title']
+description = req['description']
+type = req['type']
+
+card = req['card']
+site = req['site']
+creator = req['creator']
+
+puts "URL: #{url}"
+
+response = """
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <title>#{title}</title>
+              <style type='text/cssw'>
+                img {
+                  margin: 0 auto;
+                  max-height: 100%;
+                  max-width: 100%;
+                }
+              </style>
+              <meta property='og:title' content='#{title}'>
+              <meta property='og:type' content='#{type}'>
+              <meta property='og:image' content='#{url}'>
+              <meta property='og:url' content='#{url}'>
+              <meta property='og:description' content='#{description}'>
+              <meta property='og:image:width' content='1280'>
+              <meta property='og:image:height' content='501'>
+              <meta name='twitter:card' content='#{card}'>
+              <meta name='twitter:site' content='#{site}'>
+              <meta name='twitter:creator' content='#{creator}'>
+              <meta name='twitter:title' content='#{title}'>
+              <meta name='twitter:description' content='#{description}'>
+              <meta name='twitter:image' content='#{url}''>
+            </head>
+            <body>
+            </body>
+              <script type='text/javascript'>
+                window.location='#{orgn}'
+              </script>
+            </html>
+           """
+```
 
 
 
