@@ -24,7 +24,7 @@ Recordé mi proyecto anterior, [JSONPmagic](https://mackaber.me/2024/04/25/c%C3%
 
 Metamagic nació de la necesidad de querer compartir links de imágenes (que no fueran publicadas por ti) con título y descripción. 
 
-Por ejemplo:
+### Por ejemplo:
 
 Esta foto es un archivo local enviado por una conversación.
 
@@ -34,7 +34,7 @@ Esta, en cambio si cuenta con un título y descripción (porque en realidad se t
 
 ![](/uploads/2024-05-01_16-42.png)
 
-### **Metamagic**
+## **Metamagic**
 
 Metamagic es en realidad un script muy sencillo, recibe los detalles como query parameters y los renderiza en una página de forma dinámica.
 
@@ -90,11 +90,15 @@ response = """
            """
 ```
 
-### Usando Metamagic de forma maliciosa
+## Usando Metamagic de forma maliciosa
 
 Metamagic es un script muy sencillo pero útilpara su caso de uso en específico. Sin embargo no pude evitar pensar que también podría ser utilizado para fines menos éticos. Una práctica preocupante es el uso de Metamagic en conjunto con acortadores de URLs para crear enlaces que, aunque visualmente legítimos, en realidad redirigen a los usuarios a sitios fraudulentos o maliciosos.
 
-Por ejemplo
+### Por ejemplo:
+
+Supongamos que alguien te manda un link que luzca como una noticia importante 
+
+
 
 ¿Cómo funciona este engaño?
 
