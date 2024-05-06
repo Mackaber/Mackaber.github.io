@@ -14,7 +14,8 @@ module Jekyll
         sorted_tags = tag_counts.sort_by { |_tag, count| -count }
   
         # Store the sorted tags in site data for access in Liquid templates
-        site.data['sorted_tags'] = sorted_tags
+      
+        site.data['sorted_tags'] = sorted_tags[0..4] # Get the last 5
       end
     end
   end
