@@ -1,5 +1,5 @@
 ---
-title: Mackaber's Personal Site
+title: Mackaber's Blog
 timezone: UTC
 collections:
   posts:
@@ -8,7 +8,7 @@ collections:
   uploads:
     title: Uploads
     output: true
-name: Mackaber's Personal Site
+name: Mackaber's Blog
 highlighter: true
 jekyll-archives:
   enabled: all
