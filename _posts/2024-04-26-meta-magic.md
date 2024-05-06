@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Metamagic: Una Herramienta Simple para Personalizar Metatags"
-date: 2024-04-25T23:58:00.000Z
+date: 2024-05-05T21:28:00.000Z
 tags:
   - herramientas-web
   - proyectos
