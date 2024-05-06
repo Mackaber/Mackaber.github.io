@@ -112,3 +112,7 @@ Imagina que recibes un enlace que parece llevar a una noticia importante de un s
 ### ¿Por qué es efectivo?
 
 Este método es efectivo porque explota la confianza visual. Los usuarios tienden a confiar en enlaces que lucen visualmente legítimos y provienen de fuentes aparentemente fiables. Al modificar los metatags para crear una apariencia engañosa y usar un acortador de URL para ocultar el destino real, los ciberdelincuentes pueden engañar a los usuarios para que hagan clic en enlaces maliciosos sin sospechar.
+
+SI quieren usarlo pueden hacerlo aquí: <https://metamagic.mackaber.me/>
+
+Si quieren revisar el código pueden hacerlo aquí: <https://github.com/Mackaber/metamagic>
