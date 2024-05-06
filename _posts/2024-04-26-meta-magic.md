@@ -5,6 +5,7 @@ date: 2024-04-25T23:58:00.000Z
 tags:
   - herramientas-web
   - proyectos
+  - hacking
 ---
 <!-- https://chat.openai.com/g/g-nFR4aYrrY-chispita/c/2bfafb1a-5b49-4657-8a34-bdfc5a059fb6 -->
 
@@ -96,14 +97,18 @@ Metamagic es un script muy sencillo pero útilpara su caso de uso en específico
 
 ### Por ejemplo:
 
-Supongamos que alguien te manda un link que luzca como una noticia importante 
+Supongamos que alguien te manda un link que luzca como una noticia importante:
 
+![](/uploads/2024-05-05_20-42.png)
 
+Claro, es más efectivo si usamos un acortador de links:
 
-¿Cómo funciona este engaño?
+![](/uploads/2024-05-05_20-44.png)
+
+### ¿Cómo funciona este engaño?
 
 Imagina que recibes un enlace que parece llevar a una noticia importante de un sitio de renombre. El enlace ha sido acortado, por lo que no puedes ver la URL completa, y los metatags han sido manipulados para mostrar una imagen atractiva y un título convincente. Al hacer clic en este enlace, en lugar de llevarte al contenido prometido, te redirige a un sitio que podría instalar software malicioso en tu dispositivo o engañarte para que entregues información personal.
 
-¿Por qué es efectivo?
+### ¿Por qué es efectivo?
 
 Este método es efectivo porque explota la confianza visual. Los usuarios tienden a confiar en enlaces que lucen visualmente legítimos y provienen de fuentes aparentemente fiables. Al modificar los metatags para crear una apariencia engañosa y usar un acortador de URL para ocultar el destino real, los ciberdelincuentes pueden engañar a los usuarios para que hagan clic en enlaces maliciosos sin sospechar.
