@@ -2,7 +2,10 @@
 layout: post
 title: Adaptaciones capturando sentimientos más allá de las Historias
 date: 2024-05-27T11:56:00.000Z
-tags: []
+tags:
+  - opinion
+  - peliculas
+  - analisis
 ---
 ![](/uploads/g1.webp)
 
