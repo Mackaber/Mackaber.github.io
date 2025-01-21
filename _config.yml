@@ -11,7 +11,9 @@ collections:
 name: Mackaber's Blog
 highlighter: true
 jekyll-archives:
-  enabled: all
+  enabled: 
+    - tags
+    - categories
   layout: archive
   permalinks:
     year: '/:year/'
