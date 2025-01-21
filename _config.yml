@@ -24,6 +24,8 @@ kramdown:
   syntax_highlighter_opts:
     css: class
     line_numbers: false
+github:
+  repository: mackaber/Mackaber.github.io
 plugins:
   - jekyll-archives
   - jekyll-debug
