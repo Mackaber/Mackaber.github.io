@@ -28,4 +28,5 @@ plugins:
   - jekyll-archives
   - jekyll-debug
   - kramdown-syntax-coderay
+  - jekyll-feed
 
