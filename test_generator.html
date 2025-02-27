@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .options label {
+        display: block;
+        margin: 5px 0;
+      }
+      #grade {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-top: 20px;
+      }
+      #questionsJson {
+        width: 100%;
+        min-height: 300px;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exam</h1>
+
+    <textarea id="questionsJson">
+{
+  "questions": [
+    {
+      "question": "Which AWS service should you use to run containerized applications without managing servers or clusters of EC2 instances?",
+      "options": {
+        "A": "Amazon ECS with EC2 instances",
+        "B": "AWS Lambda",
+        "C": "AWS Fargate",
+        "D": "Amazon EKS with EC2 instances"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Which type of storage would you recommend for a high-performance, low-latency database workload that requires block-level storage?",
+      "options": {
+        "A": "Amazon S3",
+        "B": "Amazon EFS",
+        "C": "Amazon EBS",
+        "D": "Amazon Glacier"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "A company wants to implement a hybrid cloud strategy by securely connecting its on-premises network to AWS. Which AWS service should they use?",
+      "options": {
+        "A": "AWS Direct Connect",
+        "B": "Amazon Route 53",
+        "C": "Amazon VPC Peering",
+        "D": "AWS Snowball"
+      },
+      "answer": "A"
+    },
+    {
+      "question": "Which AWS service provides recommendations for cost savings, performance improvements, security enhancements, and fault tolerance?",
+      "options": {
+        "A": "AWS Config",
+        "B": "AWS Trusted Advisor",
+        "C": "Amazon CloudWatch",
+        "D": "AWS Shield"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "What is the primary purpose of Amazon CloudFront?",
+      "options": {
+        "A": "To provide a managed database service",
+        "B": "To enable serverless computing",
+        "C": "To distribute content globally with low latency",
+        "D": "To monitor and collect log data"
+      },
+      "answer": "C"
+    },
+    {
+      "question": "Which AWS database service provides a fully managed relational database with automatic scaling, backup, and failover capabilities?",
+      "options": {
+        "A": "Amazon DynamoDB",
+        "B": "Amazon Aurora",
+        "C": "Amazon Redshift",
+        "D": "Amazon RDS"
+      },
+      "answer": "D"
+    },
+    {
+      "question": "What is a key benefit of using AWS Auto Scaling for EC2 instances?",
+      "options": {
+        "A": "It allows manual provisioning of servers",
+        "B": "It enables cost savings by scaling up or down based on demand",
+        "C": "It automatically backs up all data stored on EC2 instances",
+        "D": "It replaces the need for an Elastic Load Balancer"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Which AWS service should you use to enforce compliance by managing access to AWS resources across multiple accounts?",
+      "options": {
+        "A": "AWS IAM",
+        "B": "AWS Control Tower",
+        "C": "AWS Secrets Manager",
+        "D": "Amazon Cognito"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "An application requires processing large amounts of data in parallel using a serverless approach. Which AWS service would be the best choice?",
+      "options": {
+        "A": "Amazon EC2 Spot Instances",
+        "B": "AWS Lambda",
+        "C": "AWS Batch",
+        "D": "AWS Step Functions"
+      },
+      "answer": "B"
+    },
+    {
+      "question": "Which security service helps detect threats and continuously monitors malicious activity in your AWS environment?",
+      "options": {
+        "A": "AWS WAF",
+        "B": "AWS GuardDuty",
+        "C": "AWS Shield",
+        "D": "AWS Security Hub"
+      },
+      "answer": "B"
+    }
+  ]
+}
+  </textarea
+    >
+
+    <button onclick="parseUserQuestions()">Load Questions</button>
+
+    <form id="test-form"></form>
+    <button onclick="submitTest()">Submit Test</button>
+
+    <div id="grade"></div>
+
+    <script>
+      let questionsData = { questions: [] };
+
+      function loadQuestions() {
+        const form = document.getElementById("test-form");
+        form.innerHTML = "";
+
+        questionsData.questions.forEach((question, index) => {
+          const questionDiv = document.createElement("div");
+          questionDiv.classList.add("question");
+          questionDiv.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+
+          Object.entries(question.options).forEach(([key, value]) => {
+            const optionLabel = document.createElement("label");
+            optionLabel.innerHTML = `
+                      <input type="radio" name="question${index}" value="${key}">
+                      ${key}. ${value}
+                  `;
+            questionDiv.appendChild(optionLabel);
+          });
+
+          form.appendChild(questionDiv);
+        });
+      }
+
+      function parseUserQuestions() {
+        const userInput = document.getElementById("questionsJson").value.trim();
+        try {
+          const parsedData = JSON.parse(userInput);
+          questionsData.questions = parsedData.questions || [];
+          loadQuestions();
+        } catch (err) {
+          alert(
+            'Invalid JSON. Please ensure it is a valid JSON object with a "questions" array.'
+          );
+        }
+      }
+
+      function submitTest() {
+        let score = 0;
+        questionsData.questions.forEach((question, index) => {
+          const selectedOption = document.querySelector(
+            `input[name="question${index}"]:checked`
+          );
+          if (selectedOption && selectedOption.value === question.answer) {
+            score++;
+          }
+        });
+
+        const grade = (score / questionsData.questions.length) * 100;
+        document.getElementById(
+          "grade"
+        ).innerText = `You scored: ${score} out of ${
+          questionsData.questions.length
+        } (${grade.toFixed(2)}%)`;
+      }
+    </script>
+  </body>
+</html>
