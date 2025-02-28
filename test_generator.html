@@ -1,199 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title id="htmlTitle">Exam Generator</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .question {
-      margin-bottom: 20px;
-    }
-    .options label {
-      display: block;
-      margin: 5px 0;
-    }
-    #grade {
-      font-weight: bold;
-      font-size: 1.2em;
-      margin-top: 20px;
-    }
-    #questionsJson {
-      width: 100%;
-      min-height: 300px;
-      margin-bottom: 1rem;
-    }
-    .controls {
-      margin-bottom: 1rem;
-    }
-  </style>
-</head>
-<body>
-  <h1 id="pageTitle">Exam Generator</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="htmlTitle">Exam Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .question {
+        margin-bottom: 20px;
+      }
+      .options label {
+        display: block;
+        margin: 5px 0;
+      }
+      #grade {
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-top: 20px;
+      }
+      #errorMessage {
+        color: #b00;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="pageTitle">Exam Generator</h1>
 
-  <textarea id="questionsJson" placeholder="Paste your JSON here or load from hash parameter"></textarea>
-  
-  <div class="controls">
-    <button onclick="parseUserQuestions()">Load Questions (from Textarea)</button>
-    <button onclick="generateShareLink()">Generate Shareable Link (Auto Copy)</button>
-  </div>
+    <form id="test-form"></form>
+    <button id="submitBtn" onclick="submitTest()">Submit Test</button>
 
-  <form id="test-form"></form>
-  <button onclick="submitTest()">Submit Test</button>
+    <div id="grade"></div>
+    <div id="errorMessage"></div>
 
-  <div id="grade"></div>
+    <script>
+      let questionsData = {
+        title: "",
+        questions: [],
+      };
 
-  <script>
-    // We'll keep our data here (title + questions).
-    let questionsData = {
-      title: "",
-      questions: []
-    };
+      window.addEventListener("load", () => {
+        loadFromHash();
+      });
 
-    // On page load, try to parse any JSON found in the URL hash.
-    window.addEventListener('load', () => {
-      loadFromHash();
-    });
+      /**
+       * If the URL is of the form:
+       *   http://...exam.html#questions=URL_ENCODED_JSON
+       * parse it and load that as our questionsData.
+       * If invalid or missing, we show an error and hide the submit button.
+       */
+      function loadFromHash() {
+        const hash = window.location.hash || "";
+        const prefix = "#questions=";
+        if (hash.startsWith(prefix)) {
+          // Extract encoded JSON after "#questions="
+          const encodedJson = hash.slice(prefix.length);
+          try {
+            // Decode the string
+            const decodedJson = decodeURIComponent(encodedJson);
+            // Parse the JSON
+            const parsed = JSON.parse(decodedJson);
 
-    /**
-     * If the URL is of the form:
-     *   http://...exam.html#questions=URL_ENCODED_JSON
-     * parse it and load that as our questionsData.
-     */
-    function loadFromHash() {
-      const hash = window.location.hash || '';
-      const prefix = '#questions=';
-      if (hash.startsWith(prefix)) {
-        // Extract encoded JSON after "#questions="
-        const encodedJson = hash.slice(prefix.length);
-        try {
-          // Decode the string
-          const decodedJson = decodeURIComponent(encodedJson);
-          // Parse the JSON
-          const parsed = JSON.parse(decodedJson);
+            questionsData.title = parsed.title || "Exam Generator";
+            questionsData.questions = parsed.questions || [];
 
-          // Update our global questionsData
-          questionsData.title = parsed.title || "Exam Generator";
-          questionsData.questions = parsed.questions || [];
-
-          // Update title in <head> and <h1>
-          updateTitle(questionsData.title);
-
-          // Put the JSON into the textarea too
-          document.getElementById('questionsJson').value = JSON.stringify(parsed, null, 2);
-
-          // Build out the form
-          loadQuestions();
-        } catch (err) {
-          alert('Error parsing JSON from hash. Please check your link or JSON.');
-          console.error(err);
+            updateTitle(questionsData.title);
+            loadQuestions();
+          } catch (err) {
+            showError(
+              "Error parsing JSON from hash. Please check your link or JSON."
+            );
+            console.error(err);
+          }
+        } else {
+          showError(
+            "No JSON was provided in the URL hash. Use #questions=<encoded JSON> to load an exam."
+          );
         }
       }
-    }
 
-    /**
-     * Builds the question form from our questionsData.
-     */
-    function loadQuestions() {
-      const form = document.getElementById('test-form');
-      form.innerHTML = ''; // Clear any old content
+      /**
+       * Builds the question form from our questionsData.
+       */
+      function loadQuestions() {
+        const form = document.getElementById("test-form");
+        form.innerHTML = ""; // Clear any old content
 
-      questionsData.questions.forEach((question, index) => {
-        const questionDiv = document.createElement('div');
-        questionDiv.classList.add('question');
-        questionDiv.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+        questionsData.questions.forEach((question, index) => {
+          const questionDiv = document.createElement("div");
+          questionDiv.classList.add("question");
+          questionDiv.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
 
-        Object.entries(question.options).forEach(([key, value]) => {
-          const optionLabel = document.createElement('label');
-          optionLabel.innerHTML = `
-            <input type="radio" name="question${index}" value="${key}">
-            ${key}. ${value}
-          `;
-          questionDiv.appendChild(optionLabel);
+          if (question.options && typeof question.options === "object") {
+            Object.entries(question.options).forEach(([key, value]) => {
+              const optionLabel = document.createElement("label");
+              optionLabel.classList.add("options");
+              optionLabel.innerHTML = `
+              <input type="radio" name="question${index}" value="${key}">
+              ${key}. ${value}
+            `;
+              questionDiv.appendChild(optionLabel);
+            });
+          }
+
+          form.appendChild(questionDiv);
+        });
+      }
+
+      /**
+       * Submit test and show results
+       */
+      function submitTest() {
+        let score = 0;
+        // If no questions were loaded, do nothing
+        if (!questionsData.questions.length) {
+          showError(
+            "No exam loaded. Please provide valid JSON in the URL hash."
+          );
+          return;
+        }
+
+        questionsData.questions.forEach((question, index) => {
+          const selectedOption = document.querySelector(
+            `input[name="question${index}"]:checked`
+          );
+          if (selectedOption && selectedOption.value === question.answer) {
+            score++;
+          }
         });
 
-        form.appendChild(questionDiv);
-      });
-    }
-
-    /**
-     * Triggered when the user clicks "Load Questions (from Textarea)".
-     * Attempts to parse the JSON from the textarea.
-     */
-    function parseUserQuestions() {
-      const userInput = document.getElementById('questionsJson').value.trim();
-      try {
-        const parsedData = JSON.parse(userInput);
-
-        // Update our global questionsData
-        questionsData.title = parsedData.title || "Exam Generator";
-        questionsData.questions = parsedData.questions || [];
-
-        // Update the dynamic title
-        updateTitle(questionsData.title);
-
-        // Load the questions into the form
-        loadQuestions();
-      } catch (err) {
-        alert('Invalid JSON. Please ensure it is a valid JSON with a "questions" array.');
-        console.error(err);
+        const grade = (score / questionsData.questions.length) * 100;
+        document.getElementById(
+          "grade"
+        ).innerText = `You scored: ${score} out of ${
+          questionsData.questions.length
+        } (${grade.toFixed(2)}%)`;
       }
-    }
 
-    /**
-     * Generates a shareable link by encoding the JSON from the textarea into the URL hash
-     * and copies it automatically to the clipboard.
-     */
-    async function generateShareLink() {
-      const userInput = document.getElementById('questionsJson').value.trim();
-      try {
-        // Check that it's valid JSON before embedding in the link
-        JSON.parse(userInput);
-
-        const encoded = encodeURIComponent(userInput);
-        // We'll keep the same origin and path, just change the hash
-        const shareUrl = window.location.origin + window.location.pathname + '#questions=' + encoded;
-
-        // Copy to clipboard automatically
-        await navigator.clipboard.writeText(shareUrl);
-
-        alert('Shareable link has been copied to your clipboard:\n\n' + shareUrl);
-      } catch (err) {
-        alert('Invalid JSON or clipboard error. Check the console for details.');
-        console.error(err);
+      /**
+       * Helper to update the page title (both <title> in head and <h1> in body).
+       */
+      function updateTitle(newTitle) {
+        document.getElementById("htmlTitle").innerText = newTitle;
+        document.getElementById("pageTitle").innerText = newTitle;
       }
-    }
 
-    /**
-     * Submit test and show results
-     */
-    function submitTest() {
-      let score = 0;
-      questionsData.questions.forEach((question, index) => {
-        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
-        if (selectedOption && selectedOption.value === question.answer) {
-          score++;
-        }
-      });
-
-      const grade = (score / questionsData.questions.length) * 100;
-      document.getElementById('grade').innerText =
-        `You scored: ${score} out of ${questionsData.questions.length} (${grade.toFixed(2)}%)`;
-    }
-
-    /**
-     * Helper to update the page title (both <title> in head and <h1> in body).
-     */
-    function updateTitle(newTitle) {
-      document.getElementById('htmlTitle').innerText = newTitle;
-      document.getElementById('pageTitle').innerText = newTitle;
-    }
-  </script>
-</body>
+      /**
+       * Helper to show an error message and hide the submit button.
+       */
+      function showError(message) {
+        document.getElementById("errorMessage").innerText = message;
+        document.getElementById("submitBtn").style.display = "none";
+      }
+    </script>
+  </body>
 </html>
