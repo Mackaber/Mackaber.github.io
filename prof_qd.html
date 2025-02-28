@@ -33,10 +33,21 @@
         font-weight: bold;
         margin-top: 20px;
       }
+
+      /* Highlighting */
+      .correct {
+        background-color: #ccffcc; /* Light green background for correct choice */
+      }
+      .incorrect {
+        background-color: #ffcccc; /* Light red background for incorrect chosen option */
+      }
+      .correct-answer {
+        outline: 2px solid #4caf50; /* Outline to show which one is the correct option */
+      }
     </style>
   </head>
   <body>
-    <h1 id="pageTitle">Exam Generator</h1>
+    <h1 id="pageTitle">Prof. Q. Duck</h1>
 
     <form id="test-form"></form>
     <button id="submitBtn" onclick="submitTest()">Submit Test</button>
@@ -105,9 +116,9 @@
               const optionLabel = document.createElement("label");
               optionLabel.classList.add("options");
               optionLabel.innerHTML = `
-              <input type="radio" name="question${index}" value="${key}">
-              ${key}. ${value}
-            `;
+                <input type="radio" name="question${index}" value="${key}">
+                ${key}. ${value}
+              `;
               questionDiv.appendChild(optionLabel);
             });
           }
@@ -125,12 +136,34 @@
           return;
         }
 
+        // Remove previous highlights (if user re-submits)
+        document
+          .querySelectorAll(".correct, .incorrect, .correct-answer")
+          .forEach((elem) => {
+            elem.classList.remove("correct", "incorrect", "correct-answer");
+          });
+
         questionsData.questions.forEach((question, index) => {
           const selectedOption = document.querySelector(
             `input[name="question${index}"]:checked`
           );
-          if (selectedOption && selectedOption.value === question.answer) {
-            score++;
+          const correctOption = document.querySelector(
+            `input[name="question${index}"][value="${question.answer}"]`
+          );
+
+          // Mark correct vs incorrect
+          if (selectedOption) {
+            if (selectedOption.value === question.answer) {
+              score++;
+              selectedOption.parentElement.classList.add("correct");
+            } else {
+              selectedOption.parentElement.classList.add("incorrect");
+            }
+          }
+
+          // Highlight the correct answer
+          if (correctOption) {
+            correctOption.parentElement.classList.add("correct-answer");
           }
         });
 
