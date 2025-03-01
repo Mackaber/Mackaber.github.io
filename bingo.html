@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Bingo Board - Random + Win Check</title>
+    <title>Bingo Board - Random + Win Check, Dynamic Size</title>
 
     <!-- Pako for compression/decompression -->
     <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
@@ -96,6 +96,7 @@
         cursor: pointer;
         font-size: 1rem;
       }
+
       /* Positions of the 4 "square-btn" elements */
       #removeColBtn {
         left: -3rem;
@@ -188,7 +189,7 @@
 
     <main class="container">
       <div class="board-container">
-        <!-- Bingo Table (3x3 default) -->
+        <!-- Bingo Table (default 3x3) -->
         <table id="bingoTable">
           <tbody>
             <tr>
@@ -271,33 +272,36 @@
         }
       }
 
-      /* -------- Board -> Hash (Without Mark States) -------- */
+      /* -------- Board -> Hash (Without Mark States) --------
+         We'll store a 2D array: [ [ 'text', 'text' ], [ 'text', 'text' ], ... ]
+      */
       function saveToHash() {
-        // Gather all cell texts into an array
-        const texts = [];
-        for (let row of bingoTable.rows) {
-          for (let cell of row.cells) {
-            texts.push(cell.textContent);
+        // Gather data from the table
+        const rowsData = [];
+        for (let r = 0; r < bingoTable.rows.length; r++) {
+          const rowArr = [];
+          for (let c = 0; c < bingoTable.rows[r].cells.length; c++) {
+            rowArr.push(bingoTable.rows[r].cells[c].textContent);
           }
+          rowsData.push(rowArr);
         }
-        const payload = { cells: texts };
+        // Wrap it up
+        const payload = { cells: rowsData };
 
-        // Convert to JSON, then compress
         const jsonStr = JSON.stringify(payload);
         const compressed = pako.deflate(jsonStr);
 
-        // Convert compressed data to base64 (URL-safe)
+        // Convert compressed => base64 => URL safe
         let binStr = "";
         for (let i = 0; i < compressed.length; i++) {
           binStr += String.fromCharCode(compressed[i]);
         }
         const base64 = btoa(binStr).replace(/\+/g, "-").replace(/\//g, "_");
 
-        // #q=<data>
         window.location.hash = `#q=${base64}`;
       }
 
-      /* -------- On Load: If #q=, decompress + randomize text -------- */
+      /* ---------- On Load: If #q=, reconstruct the board (any size) + randomize ---------- */
       function loadFromHash() {
         const hash = window.location.hash || "";
         const prefix = "#q=";
@@ -317,18 +321,34 @@
             const parsed = JSON.parse(jsonStr);
             if (!parsed.cells) return;
 
-            // Shuffle all the loaded texts
-            shuffleArray(parsed.cells);
-
-            // Reassign them into the table cells in row-major order
-            let idx = 0;
-            for (let row of bingoTable.rows) {
-              for (let cell of row.cells) {
-                cell.textContent = parsed.cells[idx++] || "";
+            // parsed.cells is a 2D array of text: [ [ 'A1','A2','A3' ], [ ... ], ... ]
+            // Flatten them all
+            const allTexts = [];
+            for (let rowArr of parsed.cells) {
+              for (let text of rowArr) {
+                allTexts.push(text);
               }
             }
 
-            // We start in Saved mode after load
+            // Shuffle everything
+            shuffleArray(allTexts);
+
+            // Now rebuild the table to match the loaded dimensions
+            const rowCount = parsed.cells.length;
+            const colCount = parsed.cells[0].length;
+            bingoTable.innerHTML = "";
+
+            // Create the correct # of rows/cols
+            let index = 0;
+            for (let r = 0; r < rowCount; r++) {
+              const newRow = bingoTable.insertRow(-1);
+              for (let c = 0; c < colCount; c++) {
+                const newCell = newRow.insertCell(-1);
+                newCell.textContent = allTexts[index++] || "";
+              }
+            }
+
+            // Start in Saved mode
             isEditMode = false;
             renderMode();
           } catch (err) {
@@ -420,7 +440,6 @@
 
       /* ---------- Confetti + Winner Overlay ---------- */
       function launchConfetti() {
-        // show container
         confettiContainer.classList.remove("hidden");
         confettiContainer.innerHTML = "";
 
