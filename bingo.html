@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bingo Board - Random + Win Check</title>
+
+    <!-- Pako for compression/decompression -->
+    <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+
+    <!-- Pico.css for basic styling -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+
+    <style>
+      /* Fill viewport, remove defaults */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* A top nav bar with the toggleModeBtn */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem;
+      }
+
+      /* Main container in full leftover space, flex-centered */
+      main.container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - 4rem);
+        position: relative;
+        overflow: hidden; /* confetti can fall and remain clipped */
+      }
+
+      /* The board container, with row/col +/- around it */
+      .board-container {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Basic table styling */
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #ccc;
+        position: relative; /* for cross overlay */
+      }
+      td:focus {
+        outline: 2px solid #007bff;
+      }
+
+      /*
+        Marked cells: show a centered diagonal cross
+      */
+      td.marked::before,
+      td.marked::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.6);
+      }
+      td.marked::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      td.marked::after {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      /* The + / - buttons around the table */
+      .square-btn {
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        background-color: transparent;
+        border: 1px dotted #aaa;
+        color: #777;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+      /* Positions of the 4 "square-btn" elements */
+      #removeColBtn {
+        left: -3rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #addColBtn {
+        right: -3rem;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #removeRowBtn {
+        top: -3rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      #addRowBtn {
+        bottom: -3rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /*
+        Confetti container, initially hidden
+      */
+      #confettiContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 999;
+      }
+
+      .confetti-piece {
+        position: absolute;
+        top: -2rem;
+        width: 0.5rem;
+        height: 0.9rem;
+        opacity: 0.8;
+        border-radius: 0.2rem;
+        animation: confetti-fall linear forwards;
+      }
+
+      @keyframes confetti-fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        100% {
+          transform: translateY(110vh) rotate(720deg);
+        }
+      }
+
+      /*
+        Big "WINNER!" overlay
+      */
+      #winnerOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1001;
+        pointer-events: none;
+        font-size: 5rem;
+        font-weight: bold;
+        color: rgba(255, 255, 255, 0.3);
+        text-transform: uppercase;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      }
+
+      /* Hidden class for toggling confetti, overlay, etc. */
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation bar with the Save/Edit toggle -->
+    <nav>
+      <button id="toggleModeBtn">Save</button>
+    </nav>
+
+    <main class="container">
+      <div class="board-container">
+        <!-- Bingo Table (3x3 default) -->
+        <table id="bingoTable">
+          <tbody>
+            <tr>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+            </tr>
+            <tr>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+            </tr>
+            <tr>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Buttons to add/remove rows/columns -->
+        <button id="removeColBtn" class="square-btn">-</button>
+        <button id="addColBtn" class="square-btn">+</button>
+        <button id="removeRowBtn" class="square-btn">-</button>
+        <button id="addRowBtn" class="square-btn">+</button>
+      </div>
+
+      <!-- Confetti container (initially hidden via CSS) -->
+      <div id="confettiContainer" class="hidden"></div>
+
+      <!-- Winner text overlay (initially hidden) -->
+      <div id="winnerOverlay" class="hidden">WINNER!</div>
+    </main>
+
+    <script>
+      /* ------------- State + References ------------- */
+      let isEditMode = true;
+      const bingoTable = document.getElementById("bingoTable").tBodies[0];
+
+      const toggleModeBtn = document.getElementById("toggleModeBtn");
+      const removeColBtn = document.getElementById("removeColBtn");
+      const addColBtn = document.getElementById("addColBtn");
+      const removeRowBtn = document.getElementById("removeRowBtn");
+      const addRowBtn = document.getElementById("addRowBtn");
+
+      const confettiContainer = document.getElementById("confettiContainer");
+      const winnerOverlay = document.getElementById("winnerOverlay");
+
+      /* -------- Toggle Between Edit + Saved Modes -------- */
+      function toggleMode() {
+        isEditMode = !isEditMode;
+
+        // If we just left Edit Mode => Save board to hash
+        if (!isEditMode) {
+          saveToHash();
+        } else {
+          // Going back to Edit => hide any winner overlay
+          winnerOverlay.classList.add("hidden");
+        }
+        renderMode();
+      }
+
+      function renderMode() {
+        // Button text
+        toggleModeBtn.textContent = isEditMode ? "Save" : "Edit";
+
+        // Show/hide the + and - buttons around the board
+        document.querySelectorAll(".square-btn").forEach((btn) => {
+          btn.style.display = isEditMode ? "flex" : "none";
+        });
+
+        // Set each cell contentEditable in Edit mode
+        for (let row of bingoTable.rows) {
+          for (let cell of row.cells) {
+            cell.contentEditable = isEditMode;
+            if (!isEditMode && document.activeElement === cell) {
+              cell.blur();
+            }
+          }
+        }
+      }
+
+      /* -------- Board -> Hash (Without Mark States) -------- */
+      function saveToHash() {
+        // Gather all cell texts into an array
+        const texts = [];
+        for (let row of bingoTable.rows) {
+          for (let cell of row.cells) {
+            texts.push(cell.textContent);
+          }
+        }
+        const payload = { cells: texts };
+
+        // Convert to JSON, then compress
+        const jsonStr = JSON.stringify(payload);
+        const compressed = pako.deflate(jsonStr);
+
+        // Convert compressed data to base64 (URL-safe)
+        let binStr = "";
+        for (let i = 0; i < compressed.length; i++) {
+          binStr += String.fromCharCode(compressed[i]);
+        }
+        const base64 = btoa(binStr).replace(/\+/g, "-").replace(/\//g, "_");
+
+        // #q=<data>
+        window.location.hash = `#q=${base64}`;
+      }
+
+      /* -------- On Load: If #q=, decompress + randomize text -------- */
+      function loadFromHash() {
+        const hash = window.location.hash || "";
+        const prefix = "#q=";
+        if (hash.startsWith(prefix)) {
+          const encoded = hash.slice(prefix.length);
+
+          try {
+            // Convert from URL-safe => normal base64 => binary => Uint8Array
+            const binStr = atob(encoded.replace(/-/g, "+").replace(/_/g, "/"));
+            const arr = new Uint8Array(binStr.length);
+            for (let i = 0; i < binStr.length; i++) {
+              arr[i] = binStr.charCodeAt(i);
+            }
+
+            // pako.inflate => JSON string
+            const jsonStr = pako.inflate(arr, { to: "string" });
+            const parsed = JSON.parse(jsonStr);
+            if (!parsed.cells) return;
+
+            // Shuffle all the loaded texts
+            shuffleArray(parsed.cells);
+
+            // Reassign them into the table cells in row-major order
+            let idx = 0;
+            for (let row of bingoTable.rows) {
+              for (let cell of row.cells) {
+                cell.textContent = parsed.cells[idx++] || "";
+              }
+            }
+
+            // We start in Saved mode after load
+            isEditMode = false;
+            renderMode();
+          } catch (err) {
+            console.error("Error loading from hash:", err);
+          }
+        }
+      }
+
+      /* ---------- Shuffle (Fisher-Yates) ---------- */
+      function shuffleArray(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+      }
+
+      /* ---------- Marking Cells + Win Check ---------- */
+      document.getElementById("bingoTable").addEventListener("click", (e) => {
+        if (!isEditMode && e.target.nodeName === "TD") {
+          // Toggle marked
+          e.target.classList.toggle("marked");
+          // Check for a winning row/column/diagonal
+          if (checkForWin()) {
+            launchConfetti();
+            showWinnerOverlay();
+          }
+        }
+      });
+
+      // Check if a row, column, or diagonal is fully marked
+      function checkForWin() {
+        const rowCount = bingoTable.rows.length;
+        if (rowCount === 0) return false;
+        const colCount = bingoTable.rows[0].cells.length;
+
+        function isMarked(r, c) {
+          return bingoTable.rows[r].cells[c].classList.contains("marked");
+        }
+
+        // Rows
+        for (let r = 0; r < rowCount; r++) {
+          let allMarked = true;
+          for (let c = 0; c < colCount; c++) {
+            if (!isMarked(r, c)) {
+              allMarked = false;
+              break;
+            }
+          }
+          if (allMarked) return true;
+        }
+
+        // Columns
+        for (let c = 0; c < colCount; c++) {
+          let allMarked = true;
+          for (let r = 0; r < rowCount; r++) {
+            if (!isMarked(r, c)) {
+              allMarked = false;
+              break;
+            }
+          }
+          if (allMarked) return true;
+        }
+
+        // Main diagonal
+        const size = Math.min(rowCount, colCount);
+        let mainDiag = true;
+        for (let i = 0; i < size; i++) {
+          if (!isMarked(i, i)) {
+            mainDiag = false;
+            break;
+          }
+        }
+        if (mainDiag) return true;
+
+        // Anti-diagonal
+        let antiDiag = true;
+        for (let i = 0; i < size; i++) {
+          const colIndex = size - i - 1;
+          if (!isMarked(i, colIndex)) {
+            antiDiag = false;
+            break;
+          }
+        }
+        if (antiDiag) return true;
+
+        // No winner
+        return false;
+      }
+
+      /* ---------- Confetti + Winner Overlay ---------- */
+      function launchConfetti() {
+        // show container
+        confettiContainer.classList.remove("hidden");
+        confettiContainer.innerHTML = "";
+
+        const colors = [
+          "#e57373",
+          "#f06292",
+          "#ba68c8",
+          "#9575cd",
+          "#7986cb",
+          "#64b5f6",
+          "#4dd0e1",
+          "#4db6ac",
+          "#81c784",
+          "#aed581",
+          "#ffb74d",
+          "#ff8a65",
+          "#d4e157",
+          "#ffd54f",
+          "#ffb74d",
+        ];
+
+        const numPieces = 30;
+        for (let i = 0; i < numPieces; i++) {
+          const confetti = document.createElement("div");
+          confetti.classList.add("confetti-piece");
+
+          // Random color
+          const colorIndex = Math.floor(Math.random() * colors.length);
+          confetti.style.backgroundColor = colors[colorIndex];
+
+          // Random horizontal start
+          confetti.style.left = Math.random() * 100 + "%";
+
+          // Random duration 2-4s
+          const duration = 2 + Math.random() * 2;
+          confetti.style.animationDuration = duration + "s";
+
+          // Random delay up to 1s
+          const delay = Math.random() * 1;
+          confetti.style.animationDelay = delay + "s";
+
+          confettiContainer.appendChild(confetti);
+        }
+
+        // Hide after 6s
+        setTimeout(() => {
+          confettiContainer.classList.add("hidden");
+          confettiContainer.innerHTML = "";
+        }, 6000);
+      }
+
+      function showWinnerOverlay() {
+        winnerOverlay.classList.remove("hidden");
+      }
+
+      /* ---------- Add/Remove Rows/Columns ---------- */
+      function addColumn() {
+        for (let row of bingoTable.rows) {
+          row.insertCell(-1).contentEditable = isEditMode;
+        }
+      }
+      function removeColumn() {
+        if (!bingoTable.rows.length) return;
+        const colCount = bingoTable.rows[0].cells.length;
+        if (colCount > 1) {
+          for (let row of bingoTable.rows) {
+            row.deleteCell(-1);
+          }
+        }
+      }
+      function addRow() {
+        if (!bingoTable.rows.length) return;
+        const colCount = bingoTable.rows[0].cells.length;
+        const newRow = bingoTable.insertRow(-1);
+        for (let i = 0; i < colCount; i++) {
+          newRow.insertCell(-1).contentEditable = isEditMode;
+        }
+      }
+      function removeRow() {
+        const rowCount = bingoTable.rows.length;
+        if (rowCount > 1) {
+          bingoTable.deleteRow(-1);
+        }
+      }
+
+      /* ---------- Hook up Buttons + Load  ---------- */
+      toggleModeBtn.addEventListener("click", toggleMode);
+      addColBtn.addEventListener("click", addColumn);
+      removeColBtn.addEventListener("click", removeColumn);
+      addRowBtn.addEventListener("click", addRow);
+      removeRowBtn.addEventListener("click", removeRow);
+
+      // If #q= present, load from hash + randomize
+      window.addEventListener("load", loadFromHash);
+
+      // Start in Edit mode by default
+      renderMode();
+    </script>
+  </body>
+</html>
