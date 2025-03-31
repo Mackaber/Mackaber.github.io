@@ -3,6 +3,8 @@ layout: post
 title: Sobre el arte y la IA
 date: 2025-03-29T09:51:00.000Z
 ---
+**<!-- https://chatgpt.com/g/g-PFxk1rna0-chispita/c/67e80cb1-9ec4-8000-a010-74daf4683211 -->**
+
 **1. ¿Qué es el arte?**
 
 Según la Encyclopaedia Britannica, el arte puede definirse como: "el uso consciente de la habilidad y la imaginación creativa, especialmente en la producción de objetos estéticos". Esta definición resalta el componente intencional del acto artístico, así como su orientación hacia lo estético, aunque sin limitarlo a un solo medio o disciplina.
