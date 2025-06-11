@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bingo Board - Random + Win Check, Dynamic Size</title>
 
     <!-- Pako for compression/decompression -->
@@ -51,8 +52,8 @@
         border-collapse: collapse;
       }
       td {
-        width: 3rem;
-        height: 3rem;
+        width: 5rem;
+        height: 5rem;
         text-align: center;
         vertical-align: middle;
         border: 1px solid #ccc;
@@ -85,8 +86,8 @@
       /* The + / - buttons around the table */
       .square-btn {
         position: absolute;
-        width: 2rem;
-        height: 2rem;
+        width: 3rem;
+        height: 3rem;
         background-color: transparent;
         border: 1px dotted #aaa;
         color: #777;
@@ -99,22 +100,22 @@
 
       /* Positions of the 4 "square-btn" elements */
       #removeColBtn {
-        left: -3rem;
+        left: -4rem;
         top: 50%;
         transform: translateY(-50%);
       }
       #addColBtn {
-        right: -3rem;
+        right: -4rem;
         top: 50%;
         transform: translateY(-50%);
       }
       #removeRowBtn {
-        top: -3rem;
+        top: -4rem;
         left: 50%;
         transform: translateX(-50%);
       }
       #addRowBtn {
-        bottom: -3rem;
+        bottom: -4rem;
         left: 50%;
         transform: translateX(-50%);
       }
@@ -165,7 +166,7 @@
         pointer-events: none;
         font-size: 5rem;
         font-weight: bold;
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(47, 47, 47, 0.3);
         text-transform: uppercase;
         text-align: center;
         display: flex;
