@@ -12,10 +12,18 @@ Cuando eres niño siempre tienes algún tipo de fantasía. En mi caso, a mi me f
 
 Hombres de Negro trata acerca de una sociedad secreta que se encarga de dar resguardo a alienígenas en la tierra además de tratar asuntos intergalácticos. La trama sigue a James (Will Smith), más tarde conocido como Agente J. 
 
-
-
-Ideas...
+<!-- Ideas...
 
 \- "Una persona puede ser inteligente, pero la masa es estúpida"
 
-\-
+\- El deber ser por el puro respeto al deber
+
+\- En Hombres de negro II hay una escena donde J se refiere a si mismo como James y que nadie lo conoce pero acaba de salvar a un montón de gente 
+
+\- "Siempre hay un Crucero de Batalla Arquilliano, o un Rayo de la Muerte Corilliano, o una plaga intergaláctica que está a punto de acabar con toda la vida en este miserable planetita, ¡y la única forma en que esta gente puede seguir con sus felices vidas es que NO LO SEPAN!"
+
+\- "" 
+
+
+
+\-->
