@@ -20,7 +20,7 @@ Hombres de Negro trata acerca de una sociedad secreta que se encarga de dar resg
 
 \- En Hombres de negro II hay una escena donde J se refiere a si mismo como James y que nadie lo conoce pero acaba de salvar a un montón de gente 
 
-\- "Siempre hay un Crucero de Batalla Arquilliano, o un Rayo de la Muerte Corilliano, o una plaga intergaláctica que está a punto de acabar con toda la vida en este miserable planetita, ¡y la única forma en que esta gente puede seguir con sus felices vidas es que NO LO SEPAN!"
+\- "Siempre hay un Crucero de Batalla Arquilliano, o un Rayo de la Muerte Corilliano, o una plaga intergaláctica que está a punto de acabar con toda la vida en este miserable planetita, ¡y la única forma en que esta gente puede seguir con sus felices vidas es que NO LO SEPAN!" -> No se trata de ser egoístas, más bien que si todos tuvieran la certeza de todo lo que esta pasando entrarían inmediatamente en crisis.
 
 \- "" 
 
