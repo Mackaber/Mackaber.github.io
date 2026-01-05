@@ -1,3 +1,7 @@
+---
+title: New Social Network
+---
+
 01-04-2026
 ----
 
