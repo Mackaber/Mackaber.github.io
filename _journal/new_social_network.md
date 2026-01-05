@@ -20,3 +20,4 @@
     - Use Copilot para hacer la app para expo integrándola con supabase, en 5 minutos ya tenía algo funcionando estilo Twitter, al ver la interfaz me percate de lo poco atractivo que se veía o que se podría llegar a ver, lo que me hizo pensar que una interfaz más estilo tiktok probablemente sería mejor...
     - 
     - La idea de adaptar el contenido por medio de los tags y like/dislike también es como funciona Mix
+
