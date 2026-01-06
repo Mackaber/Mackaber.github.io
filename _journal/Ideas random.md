@@ -1,0 +1,1 @@
+- La iglesia sirve para hacer networking. Como en el capítulo de Georgie y Mandy
