@@ -26,3 +26,6 @@ title: New Social Network
     - La idea de adaptar el contenido por medio de los tags y like/dislike también es como funciona Mix
 
 - Dato interesante, Mix no contiene anuncios 
+- Una idea recurrente es hacerla con contenido de 1 minuto, como si fuera un trailer de algo que involucre más tiempo (ésto hasta gemini lo sugirió.)... Mix incluye artículos pero sólo pone la imagen del metatag y el título y uno se queda con... "Y eso que?"...
+- También podría algo que se genere con IA, en éste caso los creadores de contenido terminarían beneficiados
+- Mix es sorpresivamente bueno para leer comics 
