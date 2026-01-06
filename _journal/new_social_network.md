@@ -25,3 +25,4 @@ title: New Social Network
     - 
     - La idea de adaptar el contenido por medio de los tags y like/dislike también es como funciona Mix
 
+- Dato interesante, Mix no contiene anuncios 
