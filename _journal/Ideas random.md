@@ -3,5 +3,11 @@
 - Los Simpsons y la retención de información https://g.co/gemini/share/a89eaec713a1
 
 - la desgraciada conexión entre las ciencias computacionales y la pedofilia (pasando por la teoría de "ocupar espacios"
+  - Marvin Minsky 
+  - Bill Gates
+ 
+ Teoría de ocupar espacios -> "Derecho a ser mediocres" No more matildas
+ 
+ 
 
 
