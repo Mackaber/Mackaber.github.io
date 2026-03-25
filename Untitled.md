@@ -5,4 +5,7 @@
   - Design first (example)
   - Functionality first (example)
   - Parallel (meet in the middle)
-- 
+- app inventor alternatives
+  - app invento to alts (design)
+  - app invento to alts (functionality)
+  
