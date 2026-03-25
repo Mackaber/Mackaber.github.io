@@ -1,0 +1,8 @@
+- Fp 6 UX/UI
+- Need to see your prototype before you go on vacation 
+- deliver before friday and you can skip class without absence (Once I have successfully checked it)
+- Prototype:
+  - Design first (example)
+  - Functionality first (example)
+  - Parallel (meet in the middle)
+- 
