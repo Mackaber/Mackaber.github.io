@@ -1,0 +1,6 @@
+Post de insta, sobre el dinero dividido
+
+Siento que no tengo voz ni voto sobre que hacer con el dinero...
+
+Siento que se establecen reglas pero conveniente mente si siguen o no...
+
