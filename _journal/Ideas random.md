@@ -1,4 +1,4 @@
-- La iglesia sirve para hacer networking. Como en el capítulo de Georgie y Mandy
+- La iglesia sirve para hacer networking. Como en el capítulo de Georgie y Mandy -> "No, no te hace falta a Jesús en tu vida, lo que necesitas es una red de apoyo emocional"
 
 - Los Simpsons y la retención de información https://g.co/gemini/share/a89eaec713a1
 
@@ -8,6 +8,10 @@
  
  Teoría de ocupar espacios -> "Derecho a ser mediocres", No more matildas
  
- 
-
+- Defensa y ataque hacía la IA (EN industria creativa):
+  - Guillermo del Toro
+  - AI "Art" / Slop
+  - IA en medios audiovisuales
+  - Defensa: La IA no es más que otra herramienta, es como cuando surgieron los sintetizadores, o Tron (que fue expulsado de los oscares)
+  - Ataque: El problema siempre es la especulación (efecto burbuja)
 
