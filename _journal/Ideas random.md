@@ -6,7 +6,7 @@
   - Marvin Minsky 
   - Bill Gates
  
- Teoría de ocupar espacios -> "Derecho a ser mediocres" No more matildas
+ Teoría de ocupar espacios -> "Derecho a ser mediocres", No more matildas
  
  
 

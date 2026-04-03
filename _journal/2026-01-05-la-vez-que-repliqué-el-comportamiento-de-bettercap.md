@@ -11,3 +11,5 @@ date: 2026-01-05T12:42:00.000-06:00
 - También me puse a ver el funcionamiento de la Apple II
 
 https://www.youtube.com/watch?app=desktop&v=R8LaiXbpGjQ
+
+
