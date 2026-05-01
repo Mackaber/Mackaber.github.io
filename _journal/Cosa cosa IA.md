@@ -10,17 +10,18 @@
 - reflexion de wolfram sobre conducir sin saber manejar 
 - Hace 10/15 años (app inventor)
 - Todos hacen apps, los programadores hacen extensiones y frameworks (agentes también)
-- Otra experiencia en un campus party sobre plataforma no-code de oracle -> siempre ha estado esa idea de que no se necesitan programadores o que "ya no se *necesitará código"
+- Otra experiencia en un campus party sobre plataforma no-code de oracle -> siempre ha estado esa idea de que no se necesitan programadores o que "ya no se necesitará código"
 - Mi experiencia como profesor de preparatoria
 - Siempre estuvo ahí! (Macros y BASIC)
 - Implementación por níveles -> La sopa de fideos
 - (De forma similar a: "Las máquinas deberían trabajar, los hombres pensar" de IBM). Programadores nos dedicamos a hacer frameworks ultra eficientes y plugins y el resto del mundo a hacer apps
 - El ide perfecto: (futuro)
-  - sabes lo que se está haciendo*, sin saber necesariamente que está pasando
+  - sabes lo que se está haciendo, sin saber necesariamente que está pasando
   - le puedes pedir explicaciones 
   - dashboard? (Como en los coches) 
   - separando por componentes "ajustables" y visibles
   - cosas que se aceptan
+  - Probablemente esto funcione bien en 2 partes (una principalmente con la problematica y otra con la posible solución)
 
 ----
 

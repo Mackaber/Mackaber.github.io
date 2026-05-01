@@ -1,4 +1,6 @@
-Personaje principal: Lady Lovelace (Ada Lovelace) una chica introvertida que después de que su padre lord byron la envía con los bennet se aburre mucho con las dinámicas de socialización y decide jugar con su mente creando algoritmos de las situaciones que se le presentan
+Personaje principal: Lady Lovelace (Ada Lovelace) una chica introvertida que después de que su padre lord byron la envía con los bennet se aburre mucho con las dinámicas de socialización y decide jugar con su mente creando algoritmos de las situaciones que se le presentan.
+
+EN parte de la historia Ada logra echar a andar satisfactoriamente el differential engine y ana
 
 Algoritmos 
 - Bin Stacking
@@ -10,3 +12,6 @@ Algoritmos
 - Travelling Salesman
   - 
 - Stable Marriage Problem
+
+
+
