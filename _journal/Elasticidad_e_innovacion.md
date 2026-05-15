@@ -1,0 +1,3 @@
+Han notado como tienden a evolucionar los productos?, tomemos de ejemplo el iPhone. El primer iPhone fue innovador en muchos aspectos, claro ~~robo~~ se inspiro en muchos elementos de otros dispositivos, pero no cabe duda que vino a cambiar el mundo de los dispositivos moviles. A partir de su primer lanzamiento la innovacion en los iPhones se volvio aburridamente incremental, salvo el ocasional cambio de forma, carcasa, camara. Pero siempre algo que en escencia era lo mismo. Si funciona no lo muevas (tanto), supongo...
+
+Entonces vino otra innovacion? un dispositivo nuevo el iPad
